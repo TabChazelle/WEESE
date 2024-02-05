@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'wines/index'
+  get 'wines/show'
+  get 'cheeses/index'
+  get 'cheeses/show'
+  get 'paths/index'
+  get 'users/new'
+  get 'users/create'
+  get 'users/update'
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
