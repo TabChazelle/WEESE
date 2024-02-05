@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
 
-  get 'paths/index'
+  get '/paths', to: 'paths#index'
 
   get "up" => "rails/health#show", as: :rails_health_check
 
