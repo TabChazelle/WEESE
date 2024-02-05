@@ -4,6 +4,9 @@ ruby "3.1.2"
 # devise
 gem "devise"
 
+# OpenAI ChatGPT4 Gem
+gem "ruby-openai"
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
