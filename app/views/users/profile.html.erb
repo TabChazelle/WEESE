@@ -1,0 +1,10 @@
+<div class="user-profile">
+  <h1>User Profile</h1>
+
+  <p><strong>Username:</strong> <%= @user.username %></p>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
+
+  <%= link_to 'Back to Home', root_path %>
+</div>
