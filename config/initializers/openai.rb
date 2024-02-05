@@ -1,1 +1,1 @@
-Openai.api_key = ENV["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"]
+Openai.api_key = ENV["OPENAI_API_KEY"]
