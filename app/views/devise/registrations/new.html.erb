@@ -1,0 +1,19 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, autocomplete: "current-password" %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, autocomplete: "current-password" %>
+
+  <!-- Add username field -->
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.submit "Sign up" %>
+<% end %>
+
+
+<%= render "devise/shared/links" %>
