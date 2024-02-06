@@ -1,9 +1,16 @@
+
+<div class="container">
 <h1>Pairing Details</h1>
-
-
-<p><strong>Wine:</strong> <%= @pairing.wine.name %><%= @pairing.wine.family %><%= @pairing.wine.variety %><%= @pairing.wine.country %><%= @pairing.wine.year %><%= @pairing.wine.description %></p>
-<p><strong>Cheese:</strong> <%= @pairing.cheese.name %><%= @pairing.cheese.country %><%= @pairing.cheese.milk %><%= @pairing.cheese.description %></p>
-
-
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h4 class="card-title text-center mt-3">Wine & Cheese Pairing:</h4>
+        <h5><strong>Wine:</strong></h5>
+        <p><li> <%= @pairing.wine.name %></li><li><%= @pairing.wine.family %></li><li><%= @pairing.wine.variety %></li><li><%= @pairing.wine.country %></li><li><%= @pairing.wine.year %></li><li><%= @pairing.wine.description %></li></p>
+        <p><strong>Cheese:</strong> <%= @pairing.cheese.name %><%= @pairing.cheese.country %><%= @pairing.cheese.milk %><%= @pairing.cheese.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p>Find me in app/views/pairings/show.html.erb</p>
