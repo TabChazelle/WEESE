@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
 
+  resources :pairings, only: %i[new create index show]
+
   get '/paths', to: 'paths#index'
 
   get "up" => "rails/health#show", as: :rails_health_check
@@ -20,6 +22,6 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:create]
 
-  get '/users/:id/profile', to: 'users#profile', as: 'user_profile'
+  get '/profile', to: 'users#profile', as: 'profile'
 
 end
