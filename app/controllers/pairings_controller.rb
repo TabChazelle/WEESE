@@ -18,8 +18,13 @@ class PairingsController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD
     @pairing = Pairing.all
 
+=======
+    @pairings = Pairing.all
+    @favorite_pairings = current_user.favorite_pairings
+>>>>>>> f47f01bce045f15719db99fff6f533c7afce1b1a
   end
 
   def show

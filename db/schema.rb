@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_174267) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174267) do
     t.datetime "updated_at", null: false
     t.index ["favorite_type", "favorite_id"], name: "index_favorite_favoritables_on_favorite"
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
+  end
+
+  create_table "openais", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pairings", force: :cascade do |t|

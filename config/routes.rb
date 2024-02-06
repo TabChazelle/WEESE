@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
 
     resources :reviews, only: [:create]
+
   end
   resources :openai, only: [:show]
+  resources :openai, only: [:create]
 
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'

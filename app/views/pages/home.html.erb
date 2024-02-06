@@ -1,4 +1,13 @@
-<h1>Pages#home</h1>
+<div class="split-screen">
+  <div class="left-half">
+    <%= link_to cheeses_path do %>
+      <%= image_tag 'cheese_icon.png', alt: 'Cheese Path', class: 'icon' %>
+    <% end %>
+  </div>
 
-
-<%= link_to "Select Your Path", paths_path %>
+  <div class="right-half">
+    <%= link_to wines_path do %>
+      <%= image_tag 'wine_icon.png', alt: 'Wine Path', class: 'icon' %>
+    <% end %>
+  </div>
+</div>

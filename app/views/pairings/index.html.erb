@@ -1,13 +1,23 @@
-
-<h1>Pairings#index</h1>
-
-<% @pairings.each do |pairing| %>
-  <div>
-    <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
-    <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
-    <%= link_to "View Pairing", pairings_show %>
+<div class="container">
+<h1>Pairings</h1>
+<div class="container mt-5">
+  <div class="row">
+    <% @pairings.each do |pairing| %>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+          <h4 class="card-title text-center mt-3">Wine & Cheese Pairing:</h4>
+          <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
+          <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
+        <%= link_to "View Pairing", pairing %>
+      </div>
+        </div>
+      </div>
+         <% end %>
+     </div>
+    </div>
   </div>
-  <hr>
-<% end %>
+
+
 
 <p>Find me in app/views/pairings/index.html.erb</p>

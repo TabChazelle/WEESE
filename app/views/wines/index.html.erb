@@ -1,28 +1,28 @@
+
 <h2>Top picks</h2>
-<div class="wines-container">
-  <% @wines.sample(3).each do |wine| %>
+
+<div class="scrolling-wrapper">
+  <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
-    <%= link_to 'Show More Details', wine_path(wine) %>
   <% end %>
+</div>
 </div>
 
 <h2>Popular</h2>
-<div class="wines-container">
-  <% @wines.sample(3).each do |wine| %>
+
+<div class="scrolling-wrapper">
+  <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
-    <%= link_to 'Show More Details', wine_path(wine) %>
   <% end %>
 </div>
 
-<h2>Top regions</h2>
-<div class="wines-container">
-  <% @wines.group_by(&:region).each do |region, wines| %>
-    <h3><%= region %></h3>
-    <% wines.sample(3).each do |wine| %>
-      <%= render 'wines/wine_card', wine: wine %>
-      <%= link_to 'Show More Details', wine_path(wine) %>
-    <% end %>
+<h2>Wine by Country</h2>
+
+<div class="scrolling-wrapper">
+  <% @wines.sample(8).each do |wine| %>
+    <%= render 'wines/wine_card', wine: wine %>
   <% end %>
 </div>
 
-<%= link_to "Back to Path", paths_path %>
+
+<%= link_to "Back to Path", paths_path, class: "btn btn-secondary" %>
