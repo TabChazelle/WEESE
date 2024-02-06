@@ -1,21 +1,28 @@
 class OpenaiController < ApplicationController
-  def test
-    response = Openai.create_completion(
-      model: "text-davinci-002",
-      prompt: "Translate the following English text to French: 'We are building a wine and cheese app!'",
-      max_tokens: 60
-    )
+  def create
+    client = OpenAI::Client.new
+    begin
+      response = client.chat(
+        parameters: {
+            model: "gpt-3.5-turbo", # Required.
+            messages: [{ role: "user", content: "Hello!" }], # Required.
+            temperature: 0.7,
+        })
+      puts response.dig("choices", 0, "message", "content")
 
-    @result = response['choices'].first['text'].strip
-  end
+      if response['choices'] && response['choices'].first['text']
+        @openai = response['choices'].first['text'].strip
+      else
+        @openai = "No response from OpenAI API"
+      end
 
-  def show
-    response = Openai.create_completion(
-      model: "text-davinci-002",
-      prompt: "Translate the following English text to French: '#{params[:id]}'",
-      max_tokens: 60
-    )
-
-    @openai = response['choices'].first['text'].strip
+      respond_to do |format|
+        format.turbo_stream
+        format.html
+      end
+    rescue Faraday::TooManyRequestsError
+      sleep 1 # Waits for 1 second before retrying
+      retry
+    end
   end
 end

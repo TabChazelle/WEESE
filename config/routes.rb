@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     get 'favorites', on: :collection
 
     resources :reviews, only: [:create]
+
   end
   resources :openai, only: [:show]
+  resources :openai, only: [:create]
 
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
