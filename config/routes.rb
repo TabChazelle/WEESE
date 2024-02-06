@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:create]
 
-  get '/users/:id/profile', to: 'users#profile', as: 'user_profile'
+  get '/profile', to: 'users#profile', as: 'profile'
 
 end
