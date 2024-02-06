@@ -1,1 +1,52 @@
 // Specific CSS for your home-page
+/* app/assets/stylesheets/pages/home.scss */
+
+.split-screen {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left-half, .right-half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+}
+
+.left-half {
+  background-color: #05172b;
+}
+
+.right-half {
+  background-color: #5f0606;
+}
+
+.right-half:hover {
+  background-color: #8a0a0a; /* Un léger changement de couleur au survol */
+}
+
+.left-half:hover {
+  background-color: #08284d; /* Un léger changement de couleur au survol */
+}
+
+.icon {
+  width: 50%; /* ou la taille souhaitée */
+  margin-bottom: 20px;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .split-screen {
+    flex-direction: column;
+  }
+}
