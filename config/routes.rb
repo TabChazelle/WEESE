@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
   get 'pairings/new'
   get 'pairings/create'
   get 'pairings/index'
@@ -23,5 +24,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create]
 
   get '/profile', to: 'users#profile', as: 'profile'
+
+  get '/search', to: 'search#index'
 
 end
