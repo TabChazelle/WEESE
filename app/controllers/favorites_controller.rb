@@ -6,11 +6,5 @@ class FavoritesController < ApplicationController
     @favorite_cheeses = current_user.favorite_cheeses
   end
 
-  def create
 
-  end
-
-  def destroy
-
-  end
 end

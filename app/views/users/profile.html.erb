@@ -12,12 +12,12 @@
 
 <div class="profile-links">
   <ul>
-    <li><%= link_to "My Favorite Products"  %></li>
-    <li><%= link_to "My Favorite Pairings"  %></li>
+<li><%= link_to "My Favorite Products", favorites_path %></li>
+  <li><%= link_to "My Favorite Pairings", favorite_pairings_path %></li>
     <li><%= link_to "My Pairing History" %></li>
     <li><%= link_to "My Infos"  %></li>
     <li><%= link_to "Settings"  %></li>
     <li><%= link_to "Contact Us" %></li>
-    <li><%= link_to "Log Out" %></li>
+  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
   </ul>
 </div>

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
-  resources :favorites, only: [:index, :create, :destroy]
-  resources :pairings, only: [:index, :create, :destroy]
+  resources :favorites, only: [:index]
+  resources :pairings, only: [:index]
 
 
 
