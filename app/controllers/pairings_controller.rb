@@ -1,4 +1,6 @@
 class PairingsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @pairing = Pairing.new
     @wines = Wine.all
@@ -17,10 +19,15 @@ class PairingsController < ApplicationController
 
   def index
     @pairing = Pairing.all
+    @favorite_pairings = current_user.favorite_pairings
   end
 
   def show
     @pairing = Pairing.find(params[:id])
+  end
+
+  def favorites
+    @favorite_pairings = current_user.favorite_pairings
   end
 
   private
