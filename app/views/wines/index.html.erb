@@ -1,27 +1,22 @@
-
 <h2>Top picks</h2>
-<div class="wines-container">
-  <% @wines.sample(3).each do |wine| %>
+<div class="scrolling-wrapper">
+  <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
   <% end %>
 </div>
 
 <h2>Popular</h2>
-<div class="wines-container">
-  <% @wines.sample(3).each do |wine| %>
+<div class="scrolling-wrapper">
+  <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
   <% end %>
 </div>
 
-<h2>Top regions</h2>
-<div class="wines-container">
-  <% @wines.group_by(&:region).each do |region, cheeses| %>
-    <h3><%= region %></h3>
-    <% @wines.sample(3).each do |wine| %>
+<h2>Wine by Country</h2>
+  <div class="scrolling-wrapper">
+    <% @wines.sample(8).each do |wine| %>
       <%= render 'wines/wine_card', wine: wine %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-
-<%= link_to "back to Path", paths_path %>
+<%= link_to "Back to Path", paths_path, class: "btn btn-secondary" %>
