@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Defines the root path route ("/")
   root to: "pages#home"
 
-  devise_for :users
 
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
