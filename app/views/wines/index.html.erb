@@ -17,7 +17,7 @@
 <div class="wines-container">
   <% @wines.group_by(&:region).each do |region, cheeses| %>
     <h3><%= region %></h3>
-    <% wines.sample(3).each do |wine| %>
+    <% @wines.sample(3).each do |wine| %>
       <%= render 'wines/wine_card', wine: wine %>
     <% end %>
   <% end %>
