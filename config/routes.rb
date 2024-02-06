@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'openai/test'
   get 'search/index'
   get 'pairings/new'
   get 'pairings/create'
