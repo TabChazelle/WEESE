@@ -1,1 +1,1 @@
-OpenAI.configuration.access_token = ENV["OPENAI_API_KEY"]
+OpenAI.configuration.access_token = ENV.fetch("OPENAI_API_KEY")
