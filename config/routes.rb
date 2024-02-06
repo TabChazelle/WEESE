@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pairings/new'
+  get 'pairings/create'
+  get 'pairings/index'
+  get 'pairings/show'
   devise_for :users
   # Defines the root path route ("/")
   root to: "pages#home"
