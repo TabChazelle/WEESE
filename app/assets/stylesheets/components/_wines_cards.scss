@@ -20,10 +20,12 @@
 .scrolling-wrapper {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   margin-bottom: 20px;
+  width: 100vw;
+  //float: left;
 }
 
 .wine-card {
@@ -68,4 +70,10 @@
   width: fit-content;
   padding: 10px 20px;
   margin-top: 20px;
+}
+
+.scroll-container {
+  //position: fixed;
+   overflow: scroll;
+  width: 100vw;
 }
