@@ -1,4 +1,5 @@
 <h2>Top picks</h2>
+
 <div class="scrolling-wrapper">
   <% @cheeses.sample(8).each do |cheese| %>
     <%= render 'cheeses/cheese_card', cheese: cheese %>
@@ -6,6 +7,7 @@
 </div>
 
 <h2>Popular</h2>
+
 <div class="scrolling-wrapper">
   <% @cheeses.sample(8).each do |cheese| %>
     <%= render 'cheeses/cheese_card', cheese: cheese %>
@@ -13,10 +15,11 @@
 </div>
 
 <h2>Cheese by Country</h2>
-  <div class="scrolling-wrapper">
-    <% @cheeses.sample(8).each do |cheese| %>
-      <%= render 'cheeses/cheese_card', cheese: cheese %>
-    <% end %>
-  </div>
+
+<div class="scrolling-wrapper">
+  <% @cheeses.sample(8).each do |cheese| %>
+    <%= render 'cheeses/cheese_card', cheese: cheese %>
+  <% end %>
+</div>
 
 <%= link_to "Back to Path", paths_path, class: "btn btn-secondary" %>
