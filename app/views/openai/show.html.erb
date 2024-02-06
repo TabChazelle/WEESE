@@ -1,10 +1,18 @@
-<h1>AI Test</h1>
-
-<%= simple_form_for :openai, url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_frame' } do |f| %>
-  <%= f.input :prompt, label: 'Enter your prompt:', required: true %>
-  <%= f.button :submit, "Generate", name: "button_text" %>
-<% end %>
-
-<turbo-frame id="openai_frame">
-  <p id="generated-text"><%= @openai %></p>
-</turbo-frame>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1 class="text-center my-4">AI Test</h1>
+      <%= simple_form_for :openai, url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_response' } do |f| %>
+        <div class="form-group">
+          <%= f.input :prompt, label: 'What type of wine do you have?:', required: true, input_html: { class: 'form-control' } %>
+        </div>
+        <%= f.button :submit, "Generate", name: "button_text", class: 'btn btn-primary' %>
+      <% end %>
+      <br>
+      <p>Popular Cheese Pairings:</p>
+      <turbo-frame id="openai_response">
+        <%# AI Response here %>
+      </turbo-frame>
+    </div>
+  </div>
+</div>
