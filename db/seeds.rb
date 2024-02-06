@@ -48,3 +48,12 @@ end
 cheeses.each do |cheese|
   Cheese.create(cheese)
 end
+
+wines = Wine.all
+cheeses = Cheese.all
+
+# Create pairings
+wines.each do |wine|
+  cheese = cheeses.sample # Randomly select a cheese
+  Pairing.create(wines_id: wine.id, cheeses_id: cheese.id)
+end

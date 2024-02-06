@@ -2,6 +2,7 @@
 <div class="scrolling-wrapper">
   <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
+    <%= link_to 'Show More Details', wine_path(wine) %>
   <% end %>
 </div>
 
@@ -9,6 +10,7 @@
 <div class="scrolling-wrapper">
   <% @wines.sample(8).each do |wine| %>
     <%= render 'wines/wine_card', wine: wine %>
+    <%= link_to 'Show More Details', wine_path(wine) %>
   <% end %>
 </div>
 
