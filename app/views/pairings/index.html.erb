@@ -1,2 +1,12 @@
 <h1>Pairings#index</h1>
+
+<% @pairings.each do |pairing| %>
+  <div>
+    <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
+    <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
+    <%= link_to "View Pairing", pairings_show %>
+  </div>
+  <hr>
+<% end %>
+
 <p>Find me in app/views/pairings/index.html.erb</p>

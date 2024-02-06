@@ -1,2 +1,19 @@
 <h1>Pairings#new</h1>
+
+<%= form_with(model: @pairing, url: pairings_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :wine_id, "Select Wine" %>
+    <%= form.collection_select :wine_id, @wines, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cheese_id, "Select Cheese" %>
+    <%= form.collection_select :cheese_id, @cheeses, :id, :name %>
+  </div>
+
+  <%= form.submit "Create Pairing" %>
+<% end %>
+
+
+
 <p>Find me in app/views/pairings/new.html.erb</p>
