@@ -55,5 +55,5 @@ cheeses = Cheese.all
 # Create pairings
 wines.each do |wine|
   cheese = cheeses.sample # Randomly select a cheese
-  Pairing.create(wine:, cheese:)
+  Pairing.create(wines_id: wine.id, cheeses_id: cheese.id)
 end
