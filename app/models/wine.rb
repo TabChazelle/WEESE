@@ -1,9 +1,8 @@
 class Wine < ApplicationRecord
+  acts_as_favoritor
 
 has_many :pairings
 has_many :cheeses, through: :pairings
-  has_many :favorites, as: :favorited_item
-  has_many :users, through: :favorites
-  has_many :favorited_by, through: :favorites, source: :user
+  has_many :users
 
 end
