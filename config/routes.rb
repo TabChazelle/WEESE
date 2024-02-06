@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
 
-
   resources :favorites, only: [:index, :create, :destroy]
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
     get 'favorites', on: :collection
@@ -17,5 +16,9 @@ Rails.application.routes.draw do
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
   resources :users, only: [], path: 'profile'
-  resources :search, only: [:index]
+
+  # Define a route for the search functionality
+  get 'search', to: 'search#index', as: 'search'
+  get '/profile', to: 'users#profile', as: 'profile'
+
 end
