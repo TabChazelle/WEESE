@@ -1,2 +1,15 @@
 <h1>Wines#show</h1>
 <p>Find me in app/views/wines/show.html.erb</p>
+
+<h1><%= @wine.name %></h1>
+<!-- Other wine details -->
+
+<% if user_signed_in? %>
+  <% if current_user.favorite_wines.exists?(@wine.id) %>
+    <%= link_to 'Remove from Favorites', favorite_path(current_user.favorites.find_by(wine_id: @wine.id)), method: :delete %>
+  <% else %>
+    <%= link_to 'Add to Favorites', favorites_path(favorite: { wine_id: @wine.id }), method: :post %>
+  <% end %>
+<% else %>
+  <p>Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p>
+<% end %>
