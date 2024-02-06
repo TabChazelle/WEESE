@@ -1,0 +1,54 @@
+.cheese-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+.cheese-image {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cheese-card {
+  flex: 0 0 auto;
+  width: 250px;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+
+.cheese-card img {
+  max-width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.cheese-card .card-body {
+  padding: 15px;
+}
+
+.cheese-card .card-body h5 {
+  font-size: 1.25rem;
+  margin-bottom: .75rem;
+}
+
+.cheese-card .card-body p {
+  font-size: 1rem;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-secondary {
+  margin-top: 20px;
+}

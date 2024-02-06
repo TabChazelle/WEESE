@@ -1,0 +1,71 @@
+.wine-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  flex: 0 0 auto;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border-radius: 5px;
+  background: white;
+}
+.wine-image {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  margin-bottom: 20px;
+}
+
+.wine-card {
+  flex: 0 0 auto;
+  width: 250px;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+
+.wine-card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wine-card .card-body {
+  padding: 15px;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wine-card {
+    width: calc(80vw - 20px); /* Ajustez à 80% de la largeur de l'écran sur les petits appareils */
+  }
+}
+
+@media (max-width: 576px) {
+  .wine-card {
+    width: calc(75vw - 20px); /* Ajustez à 75% de la largeur de l'écran sur les très petits appareils */
+  }
+}
+
+.btn-secondary {
+  display: block;
+  width: fit-content;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
