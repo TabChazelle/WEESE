@@ -1,0 +1,2 @@
+class Openai < ApplicationRecord
+end
