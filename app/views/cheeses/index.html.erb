@@ -1,27 +1,22 @@
-
 <h2>Top picks</h2>
-<div class="cheeses-container">
-  <% @cheeses.sample(3).each do |cheese| %>
+<div class="scrolling-wrapper">
+  <% @cheeses.sample(8).each do |cheese| %>
     <%= render 'cheeses/cheese_card', cheese: cheese %>
   <% end %>
 </div>
 
 <h2>Popular</h2>
-<div class="cheeses-container">
-  <% @cheeses.sample(3).each do |cheese| %>
+<div class="scrolling-wrapper">
+  <% @cheeses.sample(8).each do |cheese| %>
     <%= render 'cheeses/cheese_card', cheese: cheese %>
   <% end %>
 </div>
 
 <h2>Cheese by Country</h2>
-<div class="cheeses-container">
-  <% @cheeses.group_by(&:country).each do |country, cheeses| %>
-    <h3><%= country %></h3>
-    <% cheeses.sample(3).each do |cheese| %> <!-- Affichez 3 fromages par pays -->
+  <div class="scrolling-wrapper">
+    <% @cheeses.sample(8).each do |cheese| %>
       <%= render 'cheeses/cheese_card', cheese: cheese %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-
-<%= link_to "back to Path", paths_path %>
+<%= link_to "Back to Path", paths_path, class: "btn btn-secondary" %>
