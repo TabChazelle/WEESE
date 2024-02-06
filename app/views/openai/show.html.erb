@@ -1,9 +1,8 @@
 <h1>AI Test</h1>
 
-<%= form_with url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_frame' } do %>
-  <label for="prompt">Enter your prompt:</label>
-  <input type="text" id="prompt" name="prompt" required>
-  <button type="submit">Generate</button>
+<%= simple_form_for :openai, url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_frame' } do |f| %>
+  <%= f.input :prompt, label: 'Enter your prompt:', required: true %>
+  <%= f.button :submit, "Generate", name: "button_text" %>
 <% end %>
 
 <turbo-frame id="openai_frame">

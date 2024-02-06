@@ -1,11 +1,13 @@
 class OpenaiController < ApplicationController
   def create
     client = OpenAI::Client.new
+    prompt = params[:openai][:prompt] # This is the value from your form
+
     begin
       response = client.chat(
         parameters: {
-            model: "gpt-3.5-turbo", # Required.
-            messages: [{ role: "user", content: "Hello!" }], # Required.
+            model: "gpt-4", # Required.
+            messages: [{ role: "user", content: prompt }], # Use the prompt here
             temperature: 0.7,
         })
       puts response.dig("choices", 0, "message", "content")
