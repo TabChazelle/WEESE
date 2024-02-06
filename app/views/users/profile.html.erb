@@ -1,10 +1,23 @@
 <div class="user-profile">
   <h1>User Profile</h1>
 
-  <p><strong>Username:</strong> <%= @user.username %></p>
+  <p><strong>Username:</strong> <%= @user.username.inspect %></p>
   <p><strong>Email:</strong> <%= @user.email %></p>
 
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 
   <%= link_to 'Back to Home', root_path %>
+</div>
+
+
+<div class="profile-links">
+  <ul>
+    <li><%= link_to "My Favorite Products"  %></li>
+    <li><%= link_to "My Favorite Pairings"  %></li>
+    <li><%= link_to "My Pairing History" %></li>
+    <li><%= link_to "My Infos"  %></li>
+    <li><%= link_to "Settings"  %></li>
+    <li><%= link_to "Contact Us" %></li>
+    <li><%= link_to "Log Out" %></li>
+  </ul>
 </div>

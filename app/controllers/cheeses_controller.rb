@@ -9,6 +9,8 @@ class CheesesController < ApplicationController
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR type ILIKE :query OR country ILIKE :query"
       @cheeses = @cheeses.where(sql_subquery, query: "%#{params[:query]}%")
+    else
+      @cheeses = Cheese.all
     end
   end
 

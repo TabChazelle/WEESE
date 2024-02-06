@@ -1,12 +1,13 @@
 
-<h1>My Favorite Products</h1>
+<h1>Pairings#index</h1>
 
-<h2>Favorite Wines</h2>
-<% @favorite_wines.each do |wine| %>
-  <!-- Display wine details -->
+<% @pairings.each do |pairing| %>
+  <div>
+    <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
+    <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
+    <%= link_to "View Pairing", pairings_show %>
+  </div>
+  <hr>
 <% end %>
 
-<h2>Favorite Cheeses</h2>
-<% @favorite_cheeses.each do |cheese| %>
-  <!-- Display cheese details -->
-<% end %>
+<p>Find me in app/views/pairings/index.html.erb</p>
