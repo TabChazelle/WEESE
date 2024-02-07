@@ -4,12 +4,12 @@
       <h1 class="text-center my-4">AI Test</h1>
       <%= simple_form_for :openai, url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_response' } do |f| %>
         <div class="form-group">
-          <%= f.input :prompt, label: 'What type of wine do you have?:', required: true, input_html: { class: 'form-control' } %>
+          <%= f.input :prompt, label: 'What type of wine or cheese do you have?:', required: true, input_html: { class: 'form-control' } %>
         </div>
         <%= f.button :submit, "Generate", name: "button_text", class: 'btn btn-primary' %>
       <% end %>
       <br>
-      <p>Popular Cheese Pairings:</p>
+      <p>You should pair it with :</p>
       <turbo-frame id="openai_response">
         <%# AI Response here %>
       </turbo-frame>
