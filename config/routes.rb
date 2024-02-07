@@ -9,6 +9,21 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cheeses do
+    resources :favorite, only: [:index, :create, :destroy]
+    member do
+      get 'toggle_favorite', to: 'cheeses#toggle_favorite'
+    end
+  end
+
+  resources :pairings do
+    resources :favorite, only: [:index, :create, :destroy]
+    member do
+      get 'toggle_favorite', to: 'pairings#toggle_favorite'
+    end
+  end
+
+
   resources :cheeses, only: [:index, :show]
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
     resources :reviews, only: [:create]
