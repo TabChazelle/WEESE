@@ -5,16 +5,17 @@ Rails.application.routes.draw do
   resources :wines, only: [:index, :show]
   resources :cheeses, only: [:index, :show]
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
-  resources :reviews, only: [:create]
-      end
+    resources :reviews, only: [:new, :create,]
+  end
 
+  resources :reviews, only: [:show]
 
-      resources :wines do
-        resources :favorites, only: [:index, :create, :destroy]
-      member do
-        post :toggle_favorite, to: 'wines#toggle_favorite'
-        end
-      end
+  resources :wines do
+    resources :favorites, only: [:index, :create, :destroy]
+    member do
+      post :toggle_favorite, to: 'wines#toggle_favorite'
+    end
+  end
 
   resources :openai, only: [:show]
   resources :openai, only: [:create]

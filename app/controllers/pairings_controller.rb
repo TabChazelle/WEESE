@@ -18,9 +18,7 @@ class PairingsController < ApplicationController
   end
 
   def index
-    @pairing = Pairing.all
-
-
+    @pairings = Pairing.all
   end
 
   def show
