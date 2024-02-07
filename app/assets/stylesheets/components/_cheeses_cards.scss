@@ -76,3 +76,8 @@
   overflow: scroll;
   width: 100vw;
 }
+
+.cheese-card-link {
+  text-decoration: none;
+  color: inherit; /* Make the text inside the link inherit the default color */
+}

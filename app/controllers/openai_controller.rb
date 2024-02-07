@@ -1,6 +1,8 @@
 class OpenaiController < ApplicationController
   def create
+
     @openai = OpenaiService.new(params[:openai][:prompt]).call
+
 
     respond_to do |format|
       format.turbo_stream do
