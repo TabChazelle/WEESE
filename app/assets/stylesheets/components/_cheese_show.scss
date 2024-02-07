@@ -1,0 +1,53 @@
+/* Styles for the container holding cheese items */
+.cheese-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center; /* Centers items on the cross axis */
+  text-align: center; /* Centers text within divs */
+}
+
+/* Styling for cheese images */
+.cheese-image {
+  display: block; /* pour permettre la marge automatique de fonctionner */
+  margin: 0 auto; /* centre l'image horizontalement */
+  border-radius: 26px; /* bords arrondis */
+  max-width: 100%; /* s'assure que l'image ne dépasse pas la largeur de son conteneur */
+  height: auto;
+}
+
+/* Styling for cheese names */
+.cheese-name {
+  margin-top: 5px;
+  font-size: 1.5rem; /* Title size for mobile */
+  margin-bottom: 10px;
+}
+
+/* Styling for pairing button */
+.pair-button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #460808;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.pair-button:hover {
+  background-color: #5f0808;
+  color: white;
+}
+
+/* Styling for cheese description headings */
+.cheese-description h2 {
+  font-size: 1.2rem; /* Subtitle size */
+}
+
+/* Styling for cheese description paragraphs */
+.cheese-description p {
+  font-size: 1rem; /* Description text size */
+}
+
+@media (max-width: 576px) {
+  /* Specific styles for very small screens, if needed */
+}

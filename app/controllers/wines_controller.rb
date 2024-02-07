@@ -37,6 +37,19 @@ class WinesController < ApplicationController
     redirect_to wines_url, notice: 'Wine was successfully destroyed.'
   end
 
+
+  def toggle_favorite
+    @wine = Wine.find(params[:id])
+
+    if current_user.favorited?(@wine)
+      current_user.unfavorite(@wine)
+      redirect_to @wine, notice: 'Wine removed from favorites'
+    else
+      current_user.favorite(@wine)
+      redirect_to @wine, notice: 'Wine added to favorites'
+    end
+  end
+
   private
 
   def set_wine
@@ -46,4 +59,5 @@ class WinesController < ApplicationController
   def wine_params
     params.require(:wine).permit(:name, :type, :country, :grape, :description)
   end
+
 end
