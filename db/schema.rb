@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_105117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "favorited_item_type", null: false
+    t.bigint "favorited_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "pairing_id", null: false
+    t.bigint "wine_id", null: false
+    t.bigint "cheese_id", null: false
+    t.index ["cheese_id"], name: "index_favorites_on_cheese_id"
+    t.index ["favorited_item_type", "favorited_item_id"], name: "index_favorites_on_favorited_item_type_and_favorited_item_id"
+    t.index ["pairing_id"], name: "index_favorites_on_pairing_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["wine_id"], name: "index_favorites_on_wine_id"
+  end
+
   create_table "openais", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +66,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.datetime "updated_at", null: false
     t.index ["cheeses_id"], name: "index_pairings_on_cheeses_id"
     t.index ["wines_id"], name: "index_pairings_on_wines_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +104,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.string "image_url"
   end
 
+  add_foreign_key "favorites", "cheeses"
+  add_foreign_key "favorites", "pairings"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites", "wines"
   add_foreign_key "pairings", "cheeses", column: "cheeses_id"
   add_foreign_key "pairings", "wines", column: "wines_id"
+  add_foreign_key "reviews", "users"
 end
