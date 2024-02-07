@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'toggle_favorite', to: 'pairings#toggle_favorite'
     end
   end
-  
+
   resources :reviews, only: [:create, :new]
 
   resources :cheeses, only: [:index, :show]
@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
     resources :reviews, only: [:create]
   end
+end
 
   resources :users, only: [:show, :edit, :update] do
     member do
