@@ -22,7 +22,8 @@ Rails.application.routes.draw do
       get 'toggle_favorite', to: 'pairings#toggle_favorite'
     end
   end
-
+  
+  resources :reviews, only: [:create, :new]
 
   resources :cheeses, only: [:index, :show]
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
@@ -34,6 +35,14 @@ Rails.application.routes.draw do
       get "favorites", to: "users#favorites"
     end
   end
+
+  resources :openai, only: [:show] do
+    collection do
+      post :openai_request
+    end
+  end
+
+  resources :openai, only: [:create]
 
   resources :openai, only: [:show, :create]
   resources :paths, only: [:index]
