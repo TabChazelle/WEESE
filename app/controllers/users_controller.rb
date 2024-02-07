@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    @favorite_wines = @user.all_favorites.map { |favorite| Wine.find(favorite.favoritable_id) }
+    @favorite_wines = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Wine' }
+    @favorite_cheeses = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Cheese' }
+    @favorite_pairings = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Pairing' }
   end
 
   private

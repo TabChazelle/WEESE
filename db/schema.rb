@@ -27,18 +27,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_121354) do
     t.string "image_url"
   end
 
-  create_table "favorite_favoritables", force: :cascade do |t|
-    t.string "favoritor_type", null: false
-    t.bigint "favoritor_id", null: false
-    t.string "favorite_type", null: false
-    t.bigint "favorite_id", null: false
-    t.string "scope"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["favorite_type", "favorite_id"], name: "index_favorite_favoritables_on_favorite"
-    t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
-  end
-
   create_table "favorites", force: :cascade do |t|
 
     t.string "favoritable_type", null: false
