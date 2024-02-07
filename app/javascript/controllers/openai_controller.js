@@ -23,13 +23,19 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      this.displayResult(data) // Call the displayResult method with the response data
+    })
+    .catch(error => {
+      this.handleError(error) // Handle any errors that occur during the fetch request
     })
     console.log (this.event)
   }
+
   displayResult(data) {
     // Update the openai_response element with the response data
     document.getElementById('openai_response').innerHTML = data.openai;
   }
+
   handleError(error) {
     // Handle any errors that occur during the form submission
     console.error("Error submitting form: ", error)
