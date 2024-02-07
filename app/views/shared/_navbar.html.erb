@@ -9,14 +9,14 @@
     </button>
 
      <!-- Search Bar -->
-    <div class="d-flex flex-grow-1 mx-4">
+    <%# <div class="d-flex flex-grow-1 mx-4">
       <%= form_with(url: search_path, local: true, method: :get, class: "input-group") do %>
-       <%= search_field_tag :query, params[:query], placeholder: "Search by cheese, wine, country or region", aria_label: "Search", class: "form-control" %>
-        <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
-         Search
+       <%# <%= search_field_tag :query, params[:query], placeholder: "Search by cheese, wine, country or region", aria_label: "Search", class: "form-control" %>
+        <%# <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
+         <%# Search
        <% end %>
-     <% end %>
-    </div>
+     <%# <% end %>
+    <%# </div> %>
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav">
