@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container" data-controller="openai">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
       <h1 class="text-center my-4">AI Test</h1>
-      <%= simple_form_for :openai, url: openai_index_path, method: 'post', data: { turbo_frame: 'openai_response' } do |f| %>
+      <%= simple_form_for :openai, html: { data: { action: "submit->openai#submitForm" }, class: "d-flex" } do |f| %>
         <div class="form-group">
           <%= f.input :prompt, label: 'What type of wine or cheese do you have?:', required: true, input_html: { class: 'form-control' } %>
         </div>
-        <%= f.button :submit, "Generate", name: "button_text", class: 'btn btn-primary' %>
-      <% end %>
+          <%= f.submit "Generate", class: 'btn btn-primary' %>
+          <% end %>
       <br>
       <p>You should pair it with :</p>
-      <turbo-frame id="openai_response">
-        <%# AI Response here %>
-      </turbo-frame>
+      <div id="openai_response">
+        <%# The response will be inserted here by Stimulus %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,3 @@
-# app/services/openai_service.rb
-
 class OpenaiService
   def initialize(prompt)
     @prompt = prompt
@@ -7,7 +5,7 @@ class OpenaiService
 
   def call
     client = OpenAI::Client.new
-    hardcoded_prompt = "Give me a one word answer (or more if the name is Dom Pérignon for example). Please be specific with the names I need 1 single reccomendation and it must be either a wine or a cheese that will pair will with : "
+    hardcoded_prompt = "Give me a one word answer, I need 1 single recommendation for a cheese that pairs well with "
     full_prompt = "#{hardcoded_prompt} #{@prompt}"
 
     begin

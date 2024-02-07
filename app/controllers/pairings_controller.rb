@@ -4,7 +4,7 @@ class PairingsController < ApplicationController
   def new
     @pairing = Pairing.new
     @wines = Wine.all
-    @chesses = Cheese.all
+    @cheeses = Cheese.all
   end
 
   def create
@@ -19,6 +19,7 @@ class PairingsController < ApplicationController
 
   def index
     @pairings = Pairing.all
+
   end
 
   def show
@@ -26,7 +27,25 @@ class PairingsController < ApplicationController
   end
 
 
+  def toggle_favorite
+    @pairing = Pairing.find(params[:id])
+
+    if current_user.favorited?(@pairing)
+      current_user.unfavorite(@pairing)
+      redirect_to @pairing, notice: 'pairing removed from favorites'
+    else
+      current_user.favorite(@pairing)
+      redirect_to @pairing, notice: 'pairing added to favorites'
+    end
+  end
+
+
   private
+
+  def set_pairings
+    @pairing = Pairing.find(params[:id])
+  end
+
 
   def pairing_params
     params.require(:pairing).permit(:wine_id, :cheese_id)
