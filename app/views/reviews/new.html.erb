@@ -4,11 +4,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
-      <%= simple_form_for @review do |f| %>
+      <%= simple_form_for (@review, data: { controller: "submit" }) do %>
         <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your pairing" , input_html: {data: {controller: "star-rating"}} %>
-        <%= f.submit "Send your review" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your pairing" , input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}} %>
+        <%= f.submit, class: "d-none" %>
       <% end %>
     </div>
   </div>
 </div>
+
+
+
