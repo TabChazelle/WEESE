@@ -1,18 +1,18 @@
 <h1>Pairings#new</h1>
 
-<%= simple_form_for @pairing, url: pairings_path, method: :post do |form| %>
-  <div class="field">
-    <%= form.label :wines_id, "Select Wine" %>
-    <%= form.collection_select :wines_id, @wines, :id, :name %>
-  </div>
+<%# <%= simple_form_for @pairing, url: pairings_path, method: :post do |f| %>
+  <%# <div class="field">
+    <%= f.label :wines_id, "Select Wine" %>
+    <%# <%= f.collection_select :wines_id, @wines, :id, :name %>
+  <%#</div> %>
 
-  <div class="field">
-    <%= form.label :cheeses, "Select Cheese" %>
-    <%= form.collection_select :cheeses_id, @cheeses, :id, :name %>
-  </div>
+  <%#<div class="field">
+    <%= f.label :cheeses, "Select Cheese" %>
+   <%# <%= f.collection_select :cheeses_id, @cheeses, :id, :name %>
+  <%#</div>
 
   <%= form.submit "Create Pairing" %>
-<% end %>
-
+<%#<% end %> %>
+ 
 
 <p>Find me in app/views/pairings/new.html.erb</p>

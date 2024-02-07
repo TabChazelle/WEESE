@@ -20,14 +20,15 @@
                 <dd>Country: <%= @pairing.cheese.country %></dd>
                 <dd>Milk: <%= @pairing.cheese.milk %></dd>
                 <dd>Description: <%= @pairing.cheese.description %></dd>
+            </dl>
         </div>
       <div class="card-footer text-center bg-light text-dark">
       <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
+      </div>
     </div>
-  </div>
 
   </div>
-
+  <%= link_to "Pairing Rating", new_pairing_review_path(@pairing) %>
 </div>
 
 <% if user_signed_in? %>

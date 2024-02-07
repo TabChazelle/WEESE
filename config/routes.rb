@@ -27,6 +27,17 @@ Rails.application.routes.draw do
 
   resources :cheeses, only: [:index, :show]
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
+
+    resources :reviews, only: [:new, :create,]
+  end
+
+  resources :reviews, only: [:show]
+
+  resources :wines do
+    resources :favorites, only: [:index, :create, :destroy]
+    member do
+      post :toggle_favorite, to: 'wines#toggle_favorite'
+
     resources :reviews, only: [:create]
   end
 
@@ -39,6 +50,7 @@ Rails.application.routes.draw do
   resources :openai, only: [:show] do
     collection do
       post :openai_request
+
     end
   end
 
