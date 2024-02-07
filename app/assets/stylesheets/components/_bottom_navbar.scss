@@ -1,0 +1,86 @@
+/* app/assets/stylesheets/application.css ou un autre fichier CSS spécifique */
+
+.nav-container {
+  display: flex;
+}
+
+.nav--icons {
+  position: fixed;
+  bottom: 5%;
+  left: 17%;
+  right: 0;
+  width: 66%; /* Assurez-vous que la barre prend toute la largeur */
+  background: #333; /* Couleur de fond de la navbar */
+  z-index: 10; /* Assurez-vous qu'elle reste au-dessus des autres éléments de contenu */
+  display: flex;
+  justify-content: center; /* Centre les éléments à l'horizontale */
+  align-items: center; /* Centre les éléments à la verticale */
+  border-radius: 8px;
+  padding: 11px;
+}
+
+.nav--icons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%; /* Prend la pleine largeur de la navbar */
+  justify-content: space-around; /* Espace équitable entre les liens */
+  align-items: center;
+}
+
+.nav--icons li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 60px; /* Largeur maximale pour chaque élément */
+}
+
+.nav--icons a {
+  text-decoration: none;
+  color: white; /* Couleur du texte */
+  text-align: center; /* Centre le texte sous les icônes */
+}
+
+.fa {
+  margin-bottom: 5px; /* Espace entre l'icône et le texte */
+}
+
+/* Assurez-vous que les icônes sont visibles et correctement dimensionnées */
+.fa-home, .fa-search, .fa-user {
+  font-size: 24px;
+}
+
+.content-container {
+  padding-bottom: 70px; /* Hauteur de la barre de navigation inférieure */
+}
+
+@media screen and (max-width: 560px) {
+
+}
+
+@media screen and (min-width: 561px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+  .nav--icons {
+    position: fixed;
+    left: 18%;
+    right: 0;
+    bottom: 5%;
+  }
+}
+
+// .bottom-navbar-container {
+//   position: fixed;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   left: 0;
+//   right: 0;
+//   bottom: 10px; /* Ajustez cette valeur pour créer un espace entre la navbar et le bas de la page */
+//   height: 120px; /* La hauteur de votre navbar */
+//   z-index: 10; /* Pour s'assurer qu'elle reste au-dessus des autres éléments */
+//   /* autres styles nécessaires pour votre navbar */
+// }
