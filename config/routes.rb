@@ -7,10 +7,15 @@ Rails.application.routes.draw do
 
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
 
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :new]
 
   end
-  resources :openai, only: [:show]
+  resources :openai, only: [:show] do
+    collection do
+      post :openai_request
+    end
+  end
+
   resources :openai, only: [:create]
 
   resources :paths, only: [:index]

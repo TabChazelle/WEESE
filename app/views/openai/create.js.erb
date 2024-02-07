@@ -1,3 +1,3 @@
 <% if @openai %>
-  document.getElementById('generated-text').innerHTML = "<%= j @openai %>";
+  document.getElementById('openai_response').innerHTML = "<%= j @openai %>";
 <% end %>
