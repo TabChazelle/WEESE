@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_105117) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_121354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,16 +27,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.string "image_url"
   end
 
-  create_table "favorite_favoritables", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
+
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
     t.string "favoritor_type", null: false
     t.bigint "favoritor_id", null: false
-    t.string "favorite_type", null: false
-    t.bigint "favorite_id", null: false
-    t.string "scope"
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favorite_type", "favorite_id"], name: "index_favorite_favoritables_on_favorite"
-    t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
+    t.index ["scope"], name: "index_favorites_on_scope"
+
   end
 
   create_table "openais", force: :cascade do |t|
@@ -50,6 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.datetime "updated_at", null: false
     t.index ["cheeses_id"], name: "index_pairings_on_cheeses_id"
     t.index ["wines_id"], name: "index_pairings_on_wines_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +97,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_174269) do
     t.string "image_url"
   end
 
+  add_foreign_key "favorites", "cheeses"
+  add_foreign_key "favorites", "pairings"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites", "wines"
   add_foreign_key "pairings", "cheeses", column: "cheeses_id"
   add_foreign_key "pairings", "wines", column: "wines_id"
+  add_foreign_key "reviews", "users"
 end

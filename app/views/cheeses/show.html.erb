@@ -1,2 +1,28 @@
-<h1>Cheeses#show</h1>
-<p>Find me in app/views/cheeses/show.html.erb</p>
+<div class="cheese-container">
+    <%= image_tag @cheese.image_url, alt: @cheese.name %>
+
+  <div class="cheese-info">
+    <h1 class="cheese-name"><%= @cheese.name %></h1>
+    <button class="btn pair-button">Pair</button>
+
+    <div class="cheese-description">
+      <h2>Description</h2>
+      <p><%= @cheese.description %></p>
+    </div>
+
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <div class="favorite-icon">
+    <%= link_to(
+      toggle_favorite_cheese_path(@cheese),
+      remote: true,
+      data: { turbo_method: :post }
+    ) do %>
+      <i class="fas fa-heart <%= @cheese.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
+    <% end %>
+  </div>
+<% else %>
+  <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
+<% end %>

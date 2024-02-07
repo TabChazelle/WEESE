@@ -1,9 +1,28 @@
+
+<div class="wines-container">
+    <%= image_tag @wine.image_url, alt: @wine.name %>
+
+  <div class="wine-info">
+    <h1 class="wine-name"><%= @wine.name %></h1>
+    <button class="btn pair-button">Pair</button>
+
+    <div class="wine-description">
+      <h2>Description</h2>
+      <p><%= @wine.description %></p>
+    </div>
+
+  </div>
+</div>
 <% if user_signed_in? %>
-  <% if current_user.favorited?(@wine) %>
-    <%= link_to 'Remove from Favorites', remove_favorite_wine_path(@wine), method: :delete %>
-  <% else %>
-    <%= link_to 'Add to Favorites', add_favorite_wine_path(@wine), method: :post %>
-  <% end %>
+  <div class="favorite-icon">
+    <%= link_to(
+      toggle_favorite_wine_path(@wine),
+      remote: true,
+      data: { turbo_method: :post }
+    ) do %>
+      <i class="fas fa-heart <%= @wine.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
+    <% end %>
+  </div>
 <% else %>
   <p>Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p>
 <% end %>
