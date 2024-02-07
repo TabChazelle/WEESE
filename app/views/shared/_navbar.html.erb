@@ -18,29 +18,25 @@
      <% end %>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <!-- Dropdown Menu for Logged-in Users -->
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } do %>
+              Welcome, <%= current_user.username.capitalize %>!
+            <% end %>
+            <!-- Dropdown Menu Items -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
+              <!-- Log Out link is placed inside the dropdown for logged-in users -->
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-         <li class="nav-item">
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-</li>
+          <!-- Login Link for Guests -->
+          <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
         <% end %>
       </ul>
     </div>

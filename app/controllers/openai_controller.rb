@@ -5,7 +5,7 @@ class OpenaiController < ApplicationController
       response = client.chat(
         parameters: {
             model: "gpt-3.5-turbo", # Required.
-            messages: [{ role: "user", content: "Hello!" }], # Required.
+            messages: [{ role: "user", content: "What's the best wine that goes with Reblochon?" }], # Required.
             temperature: 0.7,
         })
       puts response.dig("choices", 0, "message", "content")
