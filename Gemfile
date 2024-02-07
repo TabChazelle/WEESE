@@ -7,6 +7,9 @@ gem "devise"
 # OpenAI ChatGPT4 Gem
 gem "ruby-openai"
 
+# favoritor
+gem 'acts_as_favoritor'
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"

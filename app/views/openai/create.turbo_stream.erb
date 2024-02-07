@@ -1,5 +1,37 @@
-<turbo-stream action="replace" target="generated-text">
+<turbo-stream action="replace" target="generated-text-1">
   <template>
-    <%= @openai %>
+    <%= h @openai[0] %>
   </template>
 </turbo-stream>
+
+<turbo-stream action="replace" target="generated-text-2">
+  <template>
+    <%= h @openai[1] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="generated-text-3">
+  <template>
+    <%= h @openai[2] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="generated-text-3">
+  <template>
+    <%= h @openai[3] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="generated-text-3">
+  <template>
+    <%= h @openai[3] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="generated-text-3">
+  <template>
+    <%= h @openai[4] %>
+  </template>
+</turbo-stream>
+
+<!-- Add more turbo-stream tags if needed -->

@@ -1,28 +1,14 @@
 class OpenaiController < ApplicationController
   def create
-    client = OpenAI::Client.new
-    begin
-      response = client.chat(
-        parameters: {
-            model: "gpt-3.5-turbo", # Required.
-            messages: [{ role: "user", content: "What's the best wine that goes with Reblochon?" }], # Required.
-            temperature: 0.7,
-        })
-      puts response.dig("choices", 0, "message", "content")
 
-      if response['choices'] && response['choices'].first['text']
-        @openai = response['choices'].first['text'].strip
-      else
-        @openai = "No response from OpenAI API"
-      end
+    @openai = OpenaiService.new(params[:openai][:prompt]).call
 
-      respond_to do |format|
-        format.turbo_stream
-        format.html
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('openai_response', partial: 'response', locals: { openai: @openai })
       end
-    rescue Faraday::TooManyRequestsError
-      sleep 1 # Waits for 1 second before retrying
-      retry
+      format.html
     end
   end
 end
