@@ -1,23 +1,23 @@
 <div class="user-profile">
-  <h1>User Profile</h1>
-
-  <p><strong>Username:</strong> <%= @user.username.inspect %></p>
-  <p><strong>Email:</strong> <%= @user.email %></p>
-
-  <%= link_to 'Edit Profile', edit_user_registration_path %>
-
-  <%= link_to 'Back to Home', root_path %>
+    <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, class: "profile-picture" %>
+    <% end %>
+    <h1><%= @user.username %></h1>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+        <%# <%= link_to 'Back to Home', root_path, class: 'home-link' %>
 </div>
 
+    <div class="profile-links">
+        <ul>
+            <li><%= link_to 'Favorites', favorites_path %></li>
+            <li><%= link_to "My Pairing History", pairings_path %></li>
+            <li><%= link_to "My Infos", edit_user_registration_path %></li>
+            <%# <li><%= link_to "Settings", settings_path %></li>
+            <%# <li><%= link_to "Contact Us", contact_path %></li>
+            <li>
+                <%= link_to 'Edit', edit_user_registration_path, class: 'logout-btn' %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'edit-profile-link' %>
+            </li>
 
-<div class="profile-links">
-  <ul>
-<li><%= link_to 'Favorites', favorites_path %>
-</li>
-    <li><%= link_to "My Pairing History" %></li>
-    <li><%= link_to "My Infos"  %></li>
-    <li><%= link_to "Settings"  %></li>
-    <li><%= link_to "Contact Us" %></li>
-  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-  </ul>
-</div>
+        </ul>
+    </div>
