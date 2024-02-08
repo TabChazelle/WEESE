@@ -2,6 +2,9 @@
   class User < ApplicationRecord
     acts_as_favoritor
     has_many :reviews
+    has_many :favorite_wines, through: :favorites, source: :favoritable, source_type: 'Wine'
+    has_many :favorite_cheeses, through: :favorites, source: :favoritable, source_type: 'Cheese'
+    has_many :favorite_pairings, through: :favorites, source: :favoritable, source_type: 'Pairing'
 
     validates :username, presence: true
 

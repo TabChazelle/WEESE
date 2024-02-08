@@ -9,3 +9,24 @@ p.favorite-item {
   color: #666;
   margin-bottom: 10px;
 }
+
+.link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+  .link a:hover {
+    text-decoration: underline; /* Add underline effect on hover for desktop */
+  }
+}
+
+/* Styles for mobile */
+@media (max-width: 767px) {
+  .link a {
+    text-decoration: none; /* Remove default underline */
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.5); /* Dotted underline effect */
+    outline: none; /* Remove default focus outline */
+  }
+}
