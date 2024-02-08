@@ -19,26 +19,23 @@ class PairingsController < ApplicationController
 
   def index
     @pairings = Pairing.all
-
   end
 
   def show
     @pairing = Pairing.find(params[:id])
+    @reviews = Review.all
   end
 
 
   def toggle_favorite
-    @pairing = Pairing.find(params[:id])
-
-    if current_user.favorited?(@pairing)
-      current_user.unfavorite(@pairing)
-      redirect_to @pairing, notice: 'pairing removed from favorites'
+    pairing = Pairing.find(params[:id])
+    if current_user.favorite_pairings.include?(pairing)
+      current_user.favorite_pairings.delete(pairing)
     else
-      current_user.favorite(@pairing)
-      redirect_to @pairing, notice: 'pairing added to favorites'
+      current_user.favorite_pairings << pairing
     end
+    redirect_back fallback_location: root_path
   end
-
 
   private
 

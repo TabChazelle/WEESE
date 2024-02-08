@@ -45,6 +45,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    get 'edit_favorites', on: :member
+  end
+
+
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
 
@@ -52,5 +57,7 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index', as: 'search'
   get '/profile', to: 'users#profile', as: 'profile'
   get 'favorites', to: 'users#favorites', as: 'favorites'
+  get 'edit_favorites', to: 'users#edit_favorites'
+
 
 end
