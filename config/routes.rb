@@ -51,4 +51,6 @@ Rails.application.routes.draw do
   # Define a route for the search functionality
   get 'search', to: 'search#index', as: 'search'
   get '/profile', to: 'users#profile', as: 'profile'
+  get 'favorites', to: 'users#favorites', as: 'favorites'
+
 end
