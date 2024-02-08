@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @user = User.find(params[:id])
+    @user = current_user
+  authorize @user, :favorites?
     @favorite_wines = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Wine' }
     @favorite_cheeses = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Cheese' }
     @favorite_pairings = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Pairing' }
