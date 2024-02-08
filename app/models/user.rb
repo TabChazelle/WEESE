@@ -2,6 +2,7 @@
   class User < ApplicationRecord
     acts_as_favoritor
     has_many :reviews
+    has_one_attached :photo
 
     validates :username, presence: true
 
