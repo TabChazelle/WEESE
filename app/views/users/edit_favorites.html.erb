@@ -1,33 +1,37 @@
-<h2>Favorite Wines</h2>
+<!-- Favorite Wines -->
+<h2 class="favorite-heading">Favorite Wines</h2>
 <% @favorite_wines.each do |wine| %>
-  <p class="link">
+  <p class="favorite-item">
     <%= wine.name %>
     <% if current_user.favorite_wines.include?(wine) %>
-      <%= link_to "❌", toggle_favorite_wine_path(wine), method: :post %>
+      <%= link_to "❌", toggle_favorite_wine_path(wine), method: :post, class: "remove-favorite" %>
     <% end %>
   </p>
 <% end %>
 
-<h2>Favorite Cheeses</h2>
+<!-- Favorite Cheeses -->
+<h2 class="favorite-heading">Favorite Cheeses</h2>
 <% @favorite_cheeses.each do |cheese| %>
-  <p class="link" >
+  <p class="favorite-item">
     <%= cheese.name %>
     <% if current_user.favorite_cheeses.include?(cheese) %>
-      <%= link_to "❌", toggle_favorite_cheese_path(cheese), method: :post %>
+      <%= link_to "❌", toggle_favorite_cheese_path(cheese), method: :post, class: "remove-favorite" %>
     <% end %>
   </p>
 <% end %>
 
-<h2>Favorite Pairings</h2>
+<!-- Favorite Pairings -->
+<h2 class="favorite-heading">Favorite Pairings</h2>
 <% @favorite_pairings.each do |pairing| %>
-  <p class="link">
+  <p class="favorite-item">
     <%= "#{pairing.wine.name} & #{pairing.cheese.name}" %>
     <% if current_user.favorite_pairings.include?(pairing) %>
-      <%= link_to "❌", toggle_favorite_pairing_path(pairing), method: :post %>
+      <%= link_to "❌", toggle_favorite_pairing_path(pairing), method: :post, class: "remove-favorite" %>
     <% end %>
   </p>
 <% end %>
 
-<p class="link">
-<%= link_to 'Return to My Favorites', favorites_path %>
+<!-- Return to My Favorites Link -->
+<p class="link-two">
+  <%= link_to 'Return to My Favorites', favorites_path %>
 </p>
