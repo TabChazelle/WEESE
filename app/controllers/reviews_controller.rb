@@ -6,12 +6,21 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
+    @pairing = Pairing.find_by(id: params[:pairing_id])
+
+    unless @pairing
+      flash[:alert] = "Pairing not found."
+      redirect_to root_path
+      return
+    end
+
+    @review = @pairing.reviews.new(review_params)
     @review.user = current_user
+
     if @review.save
-      redirect_to new_pairing_review_path
+      redirect_to new_pairing_review_path, notice: 'Review was successfully created.'
     else
-      flash[:alert] = "Review not saved."
+      flash.now[:alert] = @review.errors.full_messages.to_sentence
       render :new
     end
   end

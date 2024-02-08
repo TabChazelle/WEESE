@@ -19,11 +19,11 @@ class PairingsController < ApplicationController
 
   def index
     @pairings = Pairing.all
-
   end
 
   def show
     @pairing = Pairing.find(params[:id])
+    @reviews = Review.all
   end
 
 
@@ -38,7 +38,6 @@ class PairingsController < ApplicationController
       redirect_to @pairing, notice: 'pairing added to favorites'
     end
   end
-
 
   private
 

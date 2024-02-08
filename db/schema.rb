@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_07_121354) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_08_104354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_121354) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+  end
+
+  create_table "favorite_favoritables", force: :cascade do |t|
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "favorite_type", null: false
+    t.bigint "favorite_id", null: false
+    t.string "scope"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorite_type", "favorite_id"], name: "index_favorite_favoritables_on_favorite"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -64,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_121354) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pairing_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
