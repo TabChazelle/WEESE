@@ -31,9 +31,6 @@ Rails.application.routes.draw do
 
   resources :wines do
     resources :reviews, only: [:create]
-    member do
-      post :toggle_favorite, to: 'wines#toggle_favorite'
-    end
   end
 
   resources :users, only: [:show, :edit, :update] do

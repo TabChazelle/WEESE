@@ -1,5 +1,9 @@
 class WinesController < ApplicationController
-  before_action :set_wine, only: [:show, :edit, :update, :destroy]
+  before_action :set_wine, only: [:show]
+
+  def new
+    @wine = Wine.new
+  end
 
   def index
     @wines = Wine.all
@@ -7,36 +11,6 @@ class WinesController < ApplicationController
 
   def show
   end
-
-  def new
-    @wine = Wine.new
-  end
-
-  def edit
-  end
-
-  def create
-    @wine = Wine.new(wine_params)
-    if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @wine.update(wine_params)
-      redirect_to @wine, notice: 'Wine was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @wine.destroy
-    redirect_to wines_url, notice: 'Wine was successfully destroyed.'
-  end
-
 
   def toggle_favorite
     @wine = Wine.find(params[:id])
@@ -59,5 +33,4 @@ class WinesController < ApplicationController
   def wine_params
     params.require(:wine).permit(:name, :type, :country, :grape, :description)
   end
-
 end
