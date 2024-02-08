@@ -1,38 +1,53 @@
-<div class="container mt-4">
-  <% if @wines.exists? || @cheeses.exists? %>
-    <h2>Search Results for "<%= params[:query] %>":</h2>
+<div class="search-container">
+  <div class="search-bar mt-3 mb-5">
+    <%= form_with(url: search_path, local: true, method: :get, class: "input-group") do %>
+      <%= search_field_tag :query, params[:query], placeholder: "Search by cheese, wine, country or region", aria_label: "Search", class: "form-control" %>
+      <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
+        Search
+      <% end %>
+    <% end %>
+  </div>
 
-    <% if @wines.exists? %>
-      <div class="wines-results">
+  <div class="results-container">
+    <% if @wines.present? || @cheeses.present? %>
+      <h2>Search Results for "<%= params[:query] %>":</h2>
+
+      <!-- Wines Results -->
+      <% if @wines.present? %>
         <h3>Wines</h3>
         <% @wines.each do |wine| %>
-          <div class="wine-card">
-            <%= image_tag wine.image_url, alt: wine.name, class: 'wine-image' if wine.image_url.present? %>
-            <h4><%= wine.name %></h4>
-            <p><%= wine.family %></p>
-            <p><%= wine.country %>, <%= wine.region %></p>
-            <p><%= truncate(wine.description, length: 150) %></p>
-          </div>
+          <%= link_to wine_path(wine), class: "wine-card-link" do %>
+            <div class="result-card wine-card">
+              <%= image_tag wine.image_url, alt: wine.name %>
+              <h4><%= wine.name %></h4>
+              <p><%= wine.family %></p>
+              <p><%= wine.country %>, <%= wine.region %></p>
+              <p><%= truncate(wine.description, length: 150) %></p>
+            </div>
+          <% end %>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
 
-    <% if @cheeses.exists? %>
-      <div class="cheeses-results">
+      <!-- Cheeses Results -->
+      <% if @cheeses.present? %>
         <h3>Cheeses</h3>
         <% @cheeses.each do |cheese| %>
-          <div class="cheese-card">
-            <%= image_tag cheese.image_url, alt: cheese.name, class: 'cheese-image' if cheese.image_url.present? %>
-            <h4><%= cheese.name %></h4>
-            <p><%= cheese.milk %> milk</p>
-            <p><%= cheese.country %>, <%= cheese.region %></p>
-            <p><%= truncate(cheese.description, length: 150) %></p>
-          </div>
+          <%= link_to cheese_path(cheese), class: "cheese-card-link" do %>
+            <div class="result-card cheese-card">
+              <%= image_tag cheese.image_url, alt: cheese.name %>
+              <h4><%= cheese.name %></h4>
+              <p><%= cheese.milk %> milk</p>
+              <p><%= cheese.country %>, <%= cheese.region %></p>
+              <p><%= truncate(cheese.description, length: 150) %></p>
+            </div>
+          <% end %>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
 
-  <% else %>
-    <h3>No results found for "<%= params[:query] %>"</h3>
-  <% end %>
+    <% else %>
+      <% if params[:query].present? %>
+        <h3>No results found for "<%= params[:query] %>"</h3>
+      <% end %>
+    <% end %>
+  </div>
 </div>
