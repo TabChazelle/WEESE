@@ -10,7 +10,7 @@
 
   <div class="results-container">
     <% if @wines.present? || @cheeses.present? %>
-      <h2>Search Results for "<%= params[:query] %>":</h2>
+      <h2>Results for "<%= params[:query] %>":</h2>
 
       <!-- Wines Results -->
       <% if @wines.present? %>
