@@ -1,14 +1,37 @@
-// Favorite Wines
+// General styling for headings
 h2.favorite-heading {
   font-size: 1.5rem;
   color: #333;
+  margin-bottom: 15px;
 }
 
+// Styling for favorite items
 p.favorite-item {
   font-size: 1.2rem;
   color: #666;
   margin-bottom: 10px;
+
+  // Styling for links within favorite items
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    // Styles for hover effect on desktop
+    @media (min-width: 768px) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // Styles for mobile devices
+    @media (max-width: 767px) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
+
 
 .link a {
   text-decoration: none;
@@ -28,5 +51,26 @@ p.favorite-item {
     text-decoration: none; /* Remove default underline */
     border-bottom: 1px dotted rgba(0, 0, 0, 0.5); /* Dotted underline effect */
     outline: none; /* Remove default focus outline */
+  }
+}
+
+
+.link-two a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+  .link-two a:hover {
+    text-decoration: underline; /* Add underline effect on hover for desktop */
+  }
+}
+
+/* Styles for mobile */
+@media (max-width: 767px) {
+  .link-two a {
+    text-decoration: underline; /* Remove default underline */
+
   }
 }
