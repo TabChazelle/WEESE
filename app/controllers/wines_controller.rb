@@ -13,15 +13,13 @@ class WinesController < ApplicationController
   end
 
   def toggle_favorite
-    @wine = Wine.find(params[:id])
-
-    if current_user.favorited?(@wine)
-      current_user.unfavorite(@wine)
-      redirect_to @wine, notice: 'Wine removed from favorites'
+    wine = Wine.find(params[:id])
+    if current_user.favorite_wines.include?(wine)
+      current_user.favorite_wines.delete(wine)
     else
-      current_user.favorite(@wine)
-      redirect_to @wine, notice: 'Wine added to favorites'
+      current_user.favorite_wines << wine
     end
+    redirect_back fallback_location: root_path
   end
 
   private

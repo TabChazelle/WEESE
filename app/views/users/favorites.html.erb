@@ -1,17 +1,31 @@
-<h2>Favorite Wines</h2>
-<% @favorite_wines.each do |favorite| %>
-  <p><%= favorite.favoritable.name %></p>
-<% end %>
+<h2 class="favorite-heading">Favorite Wines</h2>
+<div class="scrolling-wrapper">
+  <% @favorite_wines.each do |favorite| %>
+    <% wine = favorite.favoritable %>
+    <%= render 'wines/wine_card', wine: wine %>
+  <% end %>
+</div>
 
-<h2>Favorite Cheeses</h2>
-<% @favorite_cheeses.each do |favorite| %>
-  <p><%= favorite.favoritable.name %></p>
-<% end %>
+<h2 class="favorite-heading">Favorite Cheeses</h2>
+<div class="scrolling-wrapper">
+  <% @favorite_cheeses.each do |favorite| %>
+    <% cheese = favorite.favoritable %>
+    <%= render 'cheeses/cheese_card', cheese: cheese %>
+  <% end %>
+</div>
 
-<h2>Favorite Pairings</h2>
+<h2 class="favorite-heading">Favorite Pairings</h2>
+
 <% @favorite_pairings.each do |favorite| %>
   <% pairing = favorite.favoritable %>
   <% wine = Wine.find_by(id: pairing.wines_id) %>
   <% cheese = Cheese.find_by(id: pairing.cheeses_id) %>
-  <p>Wine: <%= wine.name if wine %>, Cheese: <%= cheese.name if cheese %></p>
+  <% if wine && cheese %>
+    <p class="link">
+      <%= link_to wine.name, wine %> & <%= link_to cheese.name, cheese %>
+    </p>
+  <% end %>
 <% end %>
+
+
+<%= link_to 'Edit Favorites', edit_favorites_path %>

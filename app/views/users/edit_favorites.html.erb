@@ -1,0 +1,33 @@
+<h2>Favorite Wines</h2>
+<% @favorite_wines.each do |wine| %>
+  <p class="link">
+    <%= wine.name %>
+    <% if current_user.favorite_wines.include?(wine) %>
+      <%= link_to "❌", toggle_favorite_wine_path(wine), method: :post %>
+    <% end %>
+  </p>
+<% end %>
+
+<h2>Favorite Cheeses</h2>
+<% @favorite_cheeses.each do |cheese| %>
+  <p class="link" >
+    <%= cheese.name %>
+    <% if current_user.favorite_cheeses.include?(cheese) %>
+      <%= link_to "❌", toggle_favorite_cheese_path(cheese), method: :post %>
+    <% end %>
+  </p>
+<% end %>
+
+<h2>Favorite Pairings</h2>
+<% @favorite_pairings.each do |pairing| %>
+  <p class="link">
+    <%= "#{pairing.wine.name} & #{pairing.cheese.name}" %>
+    <% if current_user.favorite_pairings.include?(pairing) %>
+      <%= link_to "❌", toggle_favorite_pairing_path(pairing), method: :post %>
+    <% end %>
+  </p>
+<% end %>
+
+<p class="link">
+<%= link_to 'Return to My Favorites', favorites_path %>
+</p>

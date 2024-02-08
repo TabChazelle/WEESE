@@ -11,17 +11,14 @@ class CheesesController < ApplicationController
   def show
   end
 
-
   def toggle_favorite
-    @cheese = Cheese.find(params[:id])
-
-    if current_user.favorited?(@cheese)
-      current_user.unfavorite(@cheese)
-      redirect_to @cheese, notice: 'cheese removed from favorites'
+    cheese = Cheese.find(params[:id])
+    if current_user.favorite_cheeses.include?(cheese)
+      current_user.favorite_cheeses.delete(cheese)
     else
-      current_user.favorite(@cheese)
-      redirect_to @cheese, notice: 'cheese added to favorites'
+      current_user.favorite_cheeses << cheese
     end
+    redirect_back fallback_location: root_path
   end
 
   private
