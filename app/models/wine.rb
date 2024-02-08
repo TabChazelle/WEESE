@@ -3,5 +3,5 @@ class Wine < ApplicationRecord
 
   has_many :pairings
   has_many :cheeses, through: :pairings
-  validates :name, :type, :country, :grape, :description, presence: true
+  validates :name, presence: true, uniqueness: true
 end

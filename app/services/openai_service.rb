@@ -17,7 +17,7 @@ class OpenaiService
   def call
     full_prompt = "#{HARD_CODED_PROMPT} #{@prompt}"
     response = make_api_request(full_prompt)
-    extract_response_content(response)
+    process_prompt(response)
   end
 
   private
@@ -41,26 +41,20 @@ class OpenaiService
     response
   end
 
-  def extract_response_content(response)
-    if response['choices'] && response['choices'].first['message'] && response['choices'].first['message']['content']
-      response['choices'].first['message']['content'].strip
-    else
-      "No response from OpenAI API"
-    end
-  end
-
-  def includes_cheese?(response)
-    response_content = extract_response_content(response)
-    response_content.downcase.include?('cheese')
-  end
-
   def process_prompt(response)
-    if includes_cheese?(response)
-      # Save it to the cheese table
-      Cheese.create(name: extract_response_content(response))
+    puts "ENTERING PROCESS PROMPT"
+    if response['choices'] && response['choices'].first['message'] && response['choices'].first['message']['content']
+      response_content = response['choices'].first['message']['content'].strip
+      puts "API response content: #{response_content}" # This will log the response content in the server console
+      if response_content.downcase.include?('cheese')
+        # Save it to the cheese table
+        Cheese.create(name: response_content)
+      else
+        # Save it to the wines table
+        Wine.create(name: response_content)
+      end
     else
-      # Save it to the wines table
-      Wine.create(name: extract_response_content(response))
+      "There has been an error processing the response please try again"
     end
   end
 end
