@@ -1,17 +1,17 @@
-<h2>Favorite Wines</h2>
+<h2 class="favorite-heading">Favorite Wines</h2>
 <% @favorite_wines.each do |favorite| %>
-  <p><%= favorite.favoritable.name %></p>
+  <p class="favorite-item"><%= favorite.favoritable.name %></p>
 <% end %>
 
-<h2>Favorite Cheeses</h2>
+<h2 class="favorite-heading">Favorite Cheeses</h2>
 <% @favorite_cheeses.each do |favorite| %>
-  <p><%= favorite.favoritable.name %></p>
+  <p class="favorite-item"><%= favorite.favoritable.name %></p>
 <% end %>
 
-<h2>Favorite Pairings</h2>
+<h2 class="favorite-heading">Favorite Pairings</h2>
 <% @favorite_pairings.each do |favorite| %>
   <% pairing = favorite.favoritable %>
   <% wine = Wine.find_by(id: pairing.wines_id) %>
   <% cheese = Cheese.find_by(id: pairing.cheeses_id) %>
-  <p>Wine: <%= wine.name if wine %>, Cheese: <%= cheese.name if cheese %></p>
+  <p class="favorite-item">Wine: <%= wine.name if wine %>, Cheese: <%= cheese.name if cheese %></p>
 <% end %>
