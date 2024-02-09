@@ -9,6 +9,9 @@
   box-shadow: 0 2px 4px rgba(0,0,0,.1);
   border-radius: 5px;
   background: white;
+  justify-content: space-between;
+  width: 250px;
+  height: 303px;
 }
 .wine-image {
   max-width: 100px;
@@ -23,18 +26,11 @@
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   width: 100vw;
   //float: left;
 }
 
-.wine-card {
-  flex: 0 0 auto;
-  width: 250px;
-  margin-right: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  border-radius: 5px;
-}
 
 .wine-card img {
   width: 100%;
@@ -46,6 +42,10 @@
 
 .wine-card .card-body {
   padding: 15px;
+}
+
+.wine-card h3 {
+  margin-top: 5px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar {
