@@ -1,18 +1,19 @@
 <div class="container" data-controller="openai">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-      <h1 class="text-center my-4">AI Test</h1>
-      <%= simple_form_for :openai, html: { data: { action: "submit->openai#submitForm" }, class: "d-flex" } do |f| %>
+      <h1 class="text-center my-4">CheeseWhiz - The Wheely Gouda Sommelier</h1>
+      <%= simple_form_for :openai, html: { data: { action: "submit->openai#submitForm" },} do |f| %>
         <div class="form-group">
           <%= f.input :prompt, label: 'What type of wine or cheese do you have?:', required: true, input_html: { class: 'form-control' } %>
         </div>
-          <%= f.submit "Generate", class: 'btn btn-primary' %>
+          <%= f.submit "Pair", class: 'btn btn-primary' %>
           <% end %>
       <br>
       <p>You should pair it with :</p>
-      <div id="openai_response">
-        <%# The response will be inserted here by Stimulus %>
-      </div>
+        <div id="openai_response">
+          <%# The response will be inserted here by Stimulus %>
+          <p class="response_placeholder">Waiting for your delicious input...</p>
+        </div>
     </div>
   </div>
 </div>

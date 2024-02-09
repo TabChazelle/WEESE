@@ -16,7 +16,7 @@
 <% if user_signed_in? %>
   <div class="favorite-icon">
     <%= link_to toggle_favorite_wine_path(@wine), method: :post, remote: true do %>
-      <i class="btn btn-primary btn-lg <%= @wine.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
+      <i class=" <%= @wine.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
     <% end %>
   </div>
 <% else %>
