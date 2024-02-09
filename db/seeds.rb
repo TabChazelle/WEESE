@@ -12,9 +12,9 @@
 
 # Array of wine data
 
+Pairing.destroy_all
 Wine.destroy_all
 Cheese.destroy_all
-Pairing.destroy_all
 
 wines = [
   { name: "Cabernet Sauvignon", family: "Cabernet", variety: "Red", sweetness: "Dry", country: "France", region: "Bordeaux", year: 2015, description: "A full-bodied red wine.", image_url: "https://source.unsplash.com/random/200x200?wine" },
