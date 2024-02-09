@@ -1,7 +1,7 @@
 <div class="container-ai" data-controller="openai">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-      <h1 class="text-center my-4">CheeseWhiz - The Wheely Gouda Sommelier</h1>
+      <h1 class="text-center my-4">Weese Wizard - The Wheely Gouda Sommelier</h1>
       <%= simple_form_for :openai, html: { data: { action: "submit->openai#submitForm" },} do |f| %>
         <div class="form-group-ai">
           <%= f.input :prompt, label: 'What type of wine or cheese do you have?:', required: true, input_html: { class: 'form-control' } %>
