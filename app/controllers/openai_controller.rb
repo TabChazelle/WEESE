@@ -1,4 +1,5 @@
 class OpenaiController < ApplicationController
+
   def openai_request
     puts params[:prompt]
     @openai = OpenaiService.new(params[:prompt]).call
