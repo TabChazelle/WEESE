@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :cheesewhiz, controller: 'openai', only: [:show, :create]
+  resource :weesewizard, controller: 'openai', only: [:show, :create]
   post '/openai/openai_request', to: 'openai#openai_request'
 
   resources :users do
