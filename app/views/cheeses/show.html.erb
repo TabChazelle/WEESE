@@ -16,7 +16,7 @@
 <% if user_signed_in? %>
   <div class="favorite-icon">
     <%= link_to toggle_favorite_cheese_path(@cheese), method: :post, remote: true do %>
-      <i class="btn btn-primary btn-lg <%= @cheese.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
+      <i class=" <%= @cheese.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
     <% end %>
   </div>
 <% else %>

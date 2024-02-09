@@ -5,6 +5,20 @@ h2.favorite-heading {
   margin-bottom: 15px;
 }
 
+// favorite.scss
+
+.favorite-icon {
+  position: absolute; /* Position the icon container absolutely */
+  top: 80px; /* Adjust the top distance according to your design */
+  right: 20px; /* Adjust the right distance according to your design */
+
+  i.fas.fa-heart, i.far.fa-heart {
+    color: red; /* Change the color to red for the heart icon */
+    font-size: 25px;
+  }
+}
+
+
 // Styling for favorite items
 p.favorite-item {
   font-size: 1.2rem;
