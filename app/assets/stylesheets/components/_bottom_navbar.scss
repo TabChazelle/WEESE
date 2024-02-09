@@ -97,6 +97,18 @@
   }
 }
 
+
+@media (max-width: 736px) {
+  $navbarMaxPercentage: 91%;
+
+  .nav--icons {
+    top: $navbarMaxPercentage;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+}
 // .bottom-navbar-container {
 //   position: fixed;
 //   display: flex;
