@@ -1,0 +1,13 @@
+
+.card-title {
+  font-weight: bold;
+}
+
+
+
+
+@media (max-width: 500px) {
+  .card-title {
+    font-size: 1.5rem;
+  }
+}

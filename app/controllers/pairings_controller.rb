@@ -23,7 +23,7 @@ class PairingsController < ApplicationController
 
   def show
     @pairing = Pairing.find(params[:id])
-    @reviews = Review.all
+    @reviews = @pairing.reviews
   end
 
 
