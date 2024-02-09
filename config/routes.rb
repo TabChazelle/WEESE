@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "pages#welcome"
+  get 'home', to: 'pages#home', as: 'home'
 
   resources :wines do
     resources :favorites, only: [:index, :create, :destroy]
