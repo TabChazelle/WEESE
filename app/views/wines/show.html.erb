@@ -4,7 +4,7 @@
 
   <div class="wine-info">
     <h1 class="wine-name"><%= @wine.name %></h1>
-    <button class="btn pair-button">Pair</button>
+    <%= link_to 'Pair', pairings_path, class: 'btn pair-button' %>
 
     <div class="wine-description">
       <h2>Description</h2>
