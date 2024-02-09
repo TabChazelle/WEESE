@@ -40,16 +40,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :openai, only: [:show, :create] do
-    collection do
-      post :openai_request
-    end
-  end
+  resource :cheesewhiz, controller: 'openai', only: [:show, :create]
+  post '/openai/openai_request', to: 'openai#openai_request'
 
   resources :users do
     get 'edit_favorites', on: :member
   end
-
 
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
