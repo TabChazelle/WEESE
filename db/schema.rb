@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.1].define(version: 2024_02_09_102152) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,18 +52,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_102152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url", default: "https://source.unsplash.com/random/200x200?cheese"
-  end
-
-  create_table "favorite_favoritables", force: :cascade do |t|
-    t.string "favoritor_type", null: false
-    t.bigint "favoritor_id", null: false
-    t.string "favorite_type", null: false
-    t.bigint "favorite_id", null: false
-    t.string "scope"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["favorite_type", "favorite_id"], name: "index_favorite_favoritables_on_favorite"
-    t.index ["favoritor_type", "favoritor_id"], name: "index_favorite_favoritables_on_favoritor"
   end
 
   create_table "favorites", force: :cascade do |t|
