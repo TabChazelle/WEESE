@@ -1,25 +1,26 @@
+<div class="cards-margin">
+  <h2>Top picks</h2>
 
-<h2>Top picks</h2>
+  <div class="scrolling-wrapper">
+    <% @wines.sample(8).each do |wine| %>
+      <%= render 'wines/wine_card', wine: wine %>
+    <% end %>
+  </div>
 
-<div class="scrolling-wrapper">
-  <% @wines.sample(8).each do |wine| %>
-    <%= render 'wines/wine_card', wine: wine %>
-  <% end %>
-</div>
-</div>
 
-<h2>Popular</h2>
+  <h2>Popular</h2>
 
-<div class="scrolling-wrapper">
-  <% @wines.sample(8).each do |wine| %>
-    <%= render 'wines/wine_card', wine: wine %>
-  <% end %>
-</div>
+  <div class="scrolling-wrapper">
+    <% @wines.sample(8).each do |wine| %>
+      <%= render 'wines/wine_card', wine: wine %>
+    <% end %>
+  </div>
 
-<h2>Wine by Country</h2>
+  <h2>Wine by Country</h2>
 
-<div class="scrolling-wrapper">
-  <% @wines.sample(8).each do |wine| %>
-    <%= render 'wines/wine_card', wine: wine %>
-  <% end %>
+  <div class="scrolling-wrapper">
+    <% @wines.sample(8).each do |wine| %>
+      <%= render 'wines/wine_card', wine: wine %>
+    <% end %>
+  </div>
 </div>
