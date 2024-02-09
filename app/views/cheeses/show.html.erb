@@ -3,7 +3,8 @@
 
   <div class="cheese-info">
     <h1 class="cheese-name"><%= @cheese.name %></h1>
-    <button class="btn pair-button">Pair</button>
+    <%= link_to 'Pair', pairings_path, class: 'btn pair-button' %>
+
 
     <div class="cheese-description">
       <h2>Description</h2>
