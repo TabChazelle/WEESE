@@ -1,12 +1,14 @@
 <div class="container-ai" data-controller="openai">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-      <h1 class="text-center my-4">Weese Wizard - The Wheely Gouda Sommelier</h1>
+      <h1 class="text-center my-4"><strong>Weese Wizard</strong></h1>
+      <h3><i>The Wheely Gouda Sommelier</i></h3>
+      <br>
       <%= simple_form_for :openai, html: { data: { action: "submit->openai#submitForm" },} do |f| %>
         <div class="form-group-ai">
-          <%= f.input :prompt, label: 'What type of wine or cheese do you have?:', required: true, input_html: { class: 'form-control' } %>
+          <%= f.input :prompt, label: false, required: true, input_html: { class: 'form-control', placeholder: 'Enter the type of wine or cheese here' } %>
         </div>
-          <%= f.submit "Pair", class: 'btn btn-primary-ai' %>
+          <%= f.submit "Pair", class: 'btn btn-ai' %>
           <% end %>
       <br>
       <p>You should pair it with :</p>
