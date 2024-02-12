@@ -8,13 +8,16 @@
   left: 17%;
   right: 0;
   width: 66%;
-  background: #333333e0;
+  background: #333;
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   padding: 11px;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+
+
 }
 
 .nav--icons ul {

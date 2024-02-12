@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit_favorites, :my_reviews]
+  before_action :authenticate_user!, only: [:edit_favorites, :my_reviews, :profile]
 
   def profile
     @user = current_user
