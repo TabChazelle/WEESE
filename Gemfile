@@ -10,6 +10,8 @@ gem "ruby-openai"
 # favoritor
 gem 'acts_as_favoritor'
 
+# Google image scraper gem
+gem 'google_search_results', '~> 2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
