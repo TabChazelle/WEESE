@@ -14,8 +14,9 @@ class ReviewsController < ApplicationController
       return
     end
 
-    @review = @pairing.reviews.new(review_params)
+    @review = Review.new(review_params)
     @review.user = current_user
+    @review.pairing = @pairing
 
     if @review.save
       redirect_to @pairing, notice: 'Review was successfully created.'
@@ -28,6 +29,11 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to my_reviews_path, notice: 'Review was successfully deleted.'
+  end
   # def destroy
   #   begin
   #     @pairing = Pairing.find(params[:pairing_id])

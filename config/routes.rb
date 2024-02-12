@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reviews, only: [:create, :new]
+  resources :reviews, only: [:create, :new, :destroy]
 
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
     resources :reviews, only: [:new, :create]
@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
+  get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
 end
