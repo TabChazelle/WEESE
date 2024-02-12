@@ -1,4 +1,5 @@
 require 'google_search_results'
+
 class OpenaiService
 
   HARD_CODED_PROMPT = "I'm going to give you a name of either a cheese or a wine. Your task is to respond in English with a single brand name that pairs well with the given input. If I give you the name of a cheese, you should respond with the name of a wine that pairs well with that cheese. If I give you the name of a wine, you should respond with the name of a cheese that pairs well with that wine. The response should be in the format of a JSON
@@ -79,8 +80,6 @@ class OpenaiService
     response
   end
 
-  require 'google_search_results'
-
   def process_prompt(response)
     if response['choices'] && response['choices'].first['message'] && response['choices'].first['message']['content']
       response_content = response['choices'].first['message']['content'].strip
@@ -103,32 +102,11 @@ class OpenaiService
         wine.description = data['wine']['description']
       end
 
-      # Creates a new pairing
+      # Creates a new pairing?
       pairing = Pairing.create(wine_id: wine.id, cheese_id: cheese.id)
 
-      # Search for images of the wine
-      serpapi_params = {
-        q: wine.name,
-        tbm: 'isch',
-        api_key: ENV.fetch('SERPAPI_API_KEY')
-      }
-      search = GoogleSearch.new(serpapi_params)
-      results = search.get_hash
-      wine_image_url = results['images_results'].first['link'] if results['images_results']
-
-      # Assign the image URL to the wine object
-      wine.image_url = wine_image_url
-      wine.save
-
-      # Search for images of the cheese
-      serpapi_params[:q] = cheese.name
-      search = GoogleSearch.new(serpapi_params)
-      results = search.get_hash
-      cheese_image_url = results['images_results'].first['link'] if results['images_results']
-
-      # Assign the image URL to the cheese object
-      cheese.image_url = cheese_image_url
-      cheese.save
+      # Calls the SearchImageJob and enqueues it to the ActiveJob queue
+      SearchImageJob.perform_later(wine.id, cheese.id)
 
       formatted_response = "<strong>Cheese Details:</strong><br>" +
       "<strong>Name:</strong> #{cheese.name}<br>" +
@@ -136,8 +114,7 @@ class OpenaiService
       "<strong>Country:</strong> #{cheese.country}<br>" +
       "<strong>Region:</strong> #{cheese.region}<br>" +
       "<strong>Milk:</strong> #{cheese.milk}<br>" +
-      "<strong>Description:</strong> #{cheese.description}<br>" +
-
+      "<strong>Description:</strong> #{cheese.description}<br><br>" +
       "<strong>Wine Details:</strong><br>" +
       "<strong>Name:</strong> #{wine.name}<br>" +
       "<strong>Family:</strong> #{wine.family}<br>" +
@@ -146,7 +123,7 @@ class OpenaiService
       "<strong>Country:</strong> #{wine.country}<br>" +
       "<strong>Region:</strong> #{wine.region}<br>" +
       "<strong>Year:</strong> #{wine.year}<br>" +
-      "<strong>Description:</strong> #{wine.description}<br>" +
+      "<strong>Description:</strong> #{wine.description}"
 
       formatted_response.html_safe
     else

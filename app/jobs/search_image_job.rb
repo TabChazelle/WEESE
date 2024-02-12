@@ -15,14 +15,12 @@ class SearchImageJob < ApplicationJob
     serpapi_params[:q] = wine.name
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
-    wine_image_url = results['images_results'].first['original'] if results['images_results']
-    wine.update(image_url: wine_image_url)
+    wine.update!(image_url: results['images_results'][0]['original']) if results['images_results']
 
     # Search for cheese image
     serpapi_params[:q] = cheese.name
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
-    cheese_image_url = results['images_results'].first['original'] if results['images_results']
-    cheese.update(image_url: cheese_image_url)
+    cheese.update!(image_url: results['images_results'][0]['original']) if results['images_results']
   end
 end
