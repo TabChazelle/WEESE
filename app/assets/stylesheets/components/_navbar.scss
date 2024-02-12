@@ -1,20 +1,29 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  position: sticky;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-weese {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: center;
   top: 0;
   z-index: 1000;
-}
+  display: flex;
+  justify-content: center; /* Center items horizontally */
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.dropdown-menu[data-bs-popper] {
-  top: 100%;
-  margin-top: var(--bs-dropdown-spacer)
+  .navbar-brand-logo img {
+    width: 40px;
+    /* Add other styles for the logo if needed */
+  }
 }

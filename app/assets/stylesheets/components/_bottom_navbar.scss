@@ -53,10 +53,28 @@
 
 
 @media screen and (max-width: 560px) {
+  $navbarMaxPercentage: 92%;
+
+  .nav--icons {
+    top: $navbarMaxPercentage;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
 
 }
 
 @media screen and (min-width: 561px) and (max-width: 768px) {
+  $navbarMaxPercentage: 92%;
+
+  .nav--icons {
+    top: $navbarMaxPercentage;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
 
 }
 
@@ -69,7 +87,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 844px) {
   /* Define the maximum percentage of the page height where the navbar should be positioned */
   $navbarMaxPercentage: 92%;
 
@@ -82,8 +100,8 @@
   }
 }
 
-@media (max-width: 767px) {
-  $navbarMaxPercentage: 94%;
+@media (max-width: 800px) {
+  $navbarMaxPercentage: 98%;
 
   .nav--icons {
     top: $navbarMaxPercentage;
