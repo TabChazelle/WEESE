@@ -11,7 +11,7 @@
   background: white;
   justify-content: space-between;
   width: 250px;
-  height: 303px;
+  height: fit-content;
 }
 .cheese-image {
   max-width: 100px;
@@ -21,6 +21,7 @@
 
 .scrolling-wrapper {
   display: flex;
+
   flex-wrap: nowrap;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
@@ -43,6 +44,7 @@
 
 .cheese-card h3 {
   margin-top: 5px;
+  font-size: 20px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar {
