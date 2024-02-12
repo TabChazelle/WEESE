@@ -1,57 +1,50 @@
 
-
-<div class="container-one">
-<h1>Pairing Details</h1>
-  <div class="d-flex">
+<div class="pairings-container">
+  <h1>Pairing Details</h1>
     <div class="card col-md-6 mb-4">
-      <div class="card-header card-title text-center">Wine & Cheese Pairing:</div>
-        <div class="card-body text-left">
-          <h5><strong>Wine:</strong></h5>
+      <div class="card-header card-title text-center"> <%= @pairing.wine.name  %> with <%= @pairing.cheese.name %></div>
+        <div class="card-body">
+          <h5><strong>Wine: <%= @pairing.wine.name %></strong></h5>
             <dl>
-              <dt>Name: <%= @pairing.wine.name %></dt>
                 <dd>Family: <%= @pairing.wine.family %></dd>
                 <dd>Variety: <%= @pairing.wine.variety %></dd>
                 <dd>Country: <%= @pairing.wine.country %></dd>
                 <dd> Year: <%= @pairing.wine.year %></dd>
                 <dd> Description: <%= @pairing.wine.description %></dd>
             </dl>
-          <h5><strong>Cheese:</strong></h5>
+          <h5><strong>Cheese: <%= @pairing.cheese.name %></strong></h5>
             <dl>
-              <dt>Name: <%= @pairing.cheese.name %></dt>
                 <dd>Country: <%= @pairing.cheese.country %></dd>
                 <dd>Milk: <%= @pairing.cheese.milk %></dd>
                 <dd>Description: <%= @pairing.cheese.description %></dd>
             </dl>
         </div>
-        <div class="card-footer text-center bg-light text-dark">
-          <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
+        <div class="card-footer">
+           <%= link_to "Rate Pairing", new_pairing_review_path(@pairing) %>
         </div>
       </div>
 
 
-      <div class="ml-auto p-5">
-        <h3> Rating </h3>
+        <h3> Rating: <%= @average_rating.round(1) %> </h3>
           <div class="col-md-6 mb-4">
             <% @reviews.each do |review| %>
               <div class="d-inline-flex">
                 <% review.rating.times do %>
-                  <i class="fas fa-star" style="color: #F5D41C;"></i>
+                  <i class="fas fa-star" ></i>
                 <% end %>
               </div>
                 <p> <%= review.content %> </p>
             <% end %>
           </div>
-        </div>
-    </div>
   </div>
-  <%= link_to "Pairing Rating", new_pairing_review_path(@pairing) %>
+
 
 
 
 <% if user_signed_in? %>
   <div class="favorite-icon">
     <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
-      <i class="btn <%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
+      <i class=" <%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
     <% end %>
   </div>
 <% else %>

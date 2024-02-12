@@ -1,13 +1,22 @@
-
-.card-title {
-  font-weight: bold;
+.pairings-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center; /* Centers items on the cross axis */
+  text-align: left; /* Centers text within divs */
 }
 
+.card-footer {
+  background-color: #e1e1e1;
+  color: black;
+  text-align: center;
+}
 
+i.fas.fa-star {
+  color: #F5D41C;
+  font-size: 25px;
+}
 
-
-@media (max-width: 500px) {
-  .card-title {
-    font-size: 1.5rem;
-  }
+@media (max-width: 576px) {
+  /* Specific styles for very small screens, if needed */
 }
