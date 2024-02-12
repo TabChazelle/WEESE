@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit_favorites]
+  before_action :authenticate_user!, only: [:edit_favorites, :my_reviews]
 
   def profile
     @user = current_user
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def favorites
     @user = current_user
-  authorize @user, :favorites?
+    authorize @user, :favorites?
     @favorite_wines = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Wine' }
     @favorite_cheeses = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Cheese' }
     @favorite_pairings = @user.all_favorites.select { |favorite| favorite.favoritable_type == 'Pairing' }
@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     @favorite_pairings = current_user.favorite_pairings
   end
 
+  def my_reviews
+    @user = current_user
+    # authorize @user, :my_reviews?
+    @reviews = @user.reviews
+  end
 
   private
 

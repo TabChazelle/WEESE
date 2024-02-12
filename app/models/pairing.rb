@@ -3,4 +3,6 @@ class Pairing < ApplicationRecord
   has_many :reviews
   belongs_to :wine, foreign_key: 'wines_id'
   belongs_to :cheese, foreign_key: 'cheeses_id'
+  delegate :name, to: :wine, prefix: true
+  delegate :name, to: :cheese, prefix: true
 end
