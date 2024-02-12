@@ -17,6 +17,14 @@ i.fas.fa-star {
   font-size: 25px;
 }
 
+.delete-button {
+  background-color: #f77070;
+  color: white;
+  font-weight: bold;
+  padding: 2px; /* Adjust padding to change button size */
+  font-size: 8px; /* Adjust font size to make button smaller */
+}
+
 @media (max-width: 576px) {
   /* Specific styles for very small screens, if needed */
 }

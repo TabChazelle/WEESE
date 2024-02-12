@@ -28,6 +28,14 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def destroy
+    @pairing = Pairing.find(params[:pairing_id])
+    @review = @pairing.reviews.find(params[:id])
+    raise
+    @review.destroy
+    redirect_to @pairing, notice: 'Review was successfully deleted.'
+  end
+
   private
 
   def review_params

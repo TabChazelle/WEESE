@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:create, :new]
 
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :destroy]
   end
 
   resources :wines do
