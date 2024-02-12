@@ -24,8 +24,8 @@ class PairingsController < ApplicationController
   def show
     @pairing = Pairing.find(params[:id])
     @reviews = @pairing.reviews
+    @average_rating = @reviews.average(:rating).to_f
   end
-
 
   def toggle_favorite
     pairing = Pairing.find(params[:id])
