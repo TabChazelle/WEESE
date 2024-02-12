@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:create, :new]
 
   resources :pairings, only: [:index, :create, :destroy, :new, :show] do
-    resources :reviews, only: [:new, :create, :destroy]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :wines do
@@ -55,6 +55,4 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
-
-
 end

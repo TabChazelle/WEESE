@@ -28,13 +28,18 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  def destroy
-    @pairing = Pairing.find(params[:pairing_id])
-    @review = @pairing.reviews.find(params[:id])
-    raise
-    @review.destroy
-    redirect_to @pairing, notice: 'Review was successfully deleted.'
-  end
+  # def destroy
+  #   begin
+  #     @pairing = Pairing.find(params[:pairing_id])
+  #     @review = @pairing.reviews.find(params[:id])
+  #     # Add authorization logic here if needed
+
+  #   @review.destroy
+  #   redirect_to @pairing, notice: 'Review was successfully deleted.'
+  #   rescue ActiveRecord::RecordNotFound
+  #     redirect_to @pairing, alert: 'Review not found.'
+  #   end
+  # end
 
   private
 
