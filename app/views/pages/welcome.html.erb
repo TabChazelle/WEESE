@@ -4,3 +4,19 @@
     <h2>The Cheese & Wine Pairing App</h2>
   </div>
 <% end %>
+
+<script>
+  // yell if not phone size
+  document.addEventListener('DOMContentLoaded', function() {
+    var screenWidth = window.innerWidth;
+    var isNotPhoneSize = screenWidth >= 768; // Assuming phone size is less than 768px
+
+    // console.log('DOMContentLoaded event fired');
+    // console.log('Screen Width:', screenWidth);
+    // console.log('Is Not Phone Size:', isNotPhoneSize);
+
+    if (isNotPhoneSize) {
+      alert('Please view me on a phone!');
+    }
+  });
+</script>
