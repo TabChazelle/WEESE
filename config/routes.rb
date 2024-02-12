@@ -55,5 +55,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
+
   get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+
 end

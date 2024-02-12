@@ -1,12 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to home_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+<nav class="navbar-weese">
+  <div class="container-nav">
+    <%= link_to root_path, class: "navbar-brand-logo" do %>
+      <% if controller_name == 'cheeses' && (action_name == 'index' || action_name == 'show') %>
+        <%= image_tag 'cheese_logo.png', alt: 'Cheese Logo' %>
+      <% elsif controller_name == 'wines' && (action_name == 'index' || action_name == 'show') %>
+        <%= image_tag 'wine_logo.png', alt: 'Wine Logo' %>
+      <% else %>
+        <%= image_tag 'pairing_logo.png', alt: 'Pairing Logo' %>
+      <% end %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Add other navbar items here -->
+  </div>
+</nav>
 
      <!-- Search Bar -->
     <%# <div class="d-flex flex-grow-1 mx-4">
@@ -17,29 +22,3 @@
        <% end %>
      <%# <% end %>
     <%# </div> %>
-
-    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <!-- Dropdown Menu for Logged-in Users -->
-          <li class="nav-item dropdown">
-            <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } do %>
-              Welcome, <%= current_user.username.capitalize %>!
-            <% end %>
-            <!-- Dropdown Menu Items -->
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Weese Wizard", weesewizard_path, class: "dropdown-item" %>
-              <!-- Log Out link is placed inside the dropdown for logged-in users -->
-              <div class="dropdown-divider"></div>
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <!-- Login Link for Guests -->
-          <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
