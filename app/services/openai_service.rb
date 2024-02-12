@@ -3,14 +3,50 @@ class OpenaiService
   HARD_CODED_PROMPT = "I'm going to give you a name of either a cheese or a wine. Your task is to respond in English with a single brand name that pairs well with the given input. If I give you the name of a cheese, you should respond with the name of a wine that pairs well with that cheese. If I give you the name of a wine, you should respond with the name of a cheese that pairs well with that wine. The response should be in the format 'BrandName Category'.
 
 
-  For example:
-  Input: Cheddar
-  Cabernet Sauvignon Wine
+  For the cheese, please include the following details:
+  - Name
+  - Softness
+  - Country of origin
+  - Region of origin
+  - Type of milk used
+  - A brief description
 
-  Input: Chardonnay
-  Brie Cheese
+  For the wine, please include the following details:
+  - Name
+  - Family
+  - Variety
+  - Sweetness
+  - Country of origin
+  - Region of origin
+  - Year of production
+  - A brief description
 
-  Input: "
+  The JSON should be structured like this:
+
+  {
+    \"cheese\": {
+      \"name\": \"\",
+      \"softness\": \"\",
+      \"country\": \"\",
+      \"region\": \"\",
+      \"milk\": \"\",
+      \"description\": \"\"
+    },
+    \"wine\": {
+      \"name\": \"\",
+      \"family\": \"\",
+      \"variety\": \"\",
+      \"sweetness\": \"\",
+      \"country\": \"\",
+      \"region\": \"\",
+      \"year\": \"\",
+      \"description\": \"\"
+    }
+  }
+
+  Thank you!
+
+  My input is "
 
   def initialize(prompt)
     @prompt = prompt
