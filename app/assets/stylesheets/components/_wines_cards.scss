@@ -11,8 +11,9 @@
   background: white;
   justify-content: space-between;
   width: 250px;
-  height: 303px;
+  height: fit-content;
 }
+
 .wine-image {
   max-width: 100px;
   height: auto;
@@ -46,6 +47,7 @@
 
 .wine-card h3 {
   margin-top: 5px;
+  font-size: 20px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar {
