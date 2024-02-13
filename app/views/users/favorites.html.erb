@@ -18,8 +18,8 @@
 
 <% @favorite_pairings.each do |favorite| %>
   <% pairing = favorite.favoritable %>
-  <% wine = Wine.find_by(id: pairing.wines_id) %>
-  <% cheese = Cheese.find_by(id: pairing.cheeses_id) %>
+  <% wine = Wine.find_by(id: pairing.wine_id) %>
+  <% cheese = Cheese.find_by(id: pairing.cheese_id) %>
   <% if wine && cheese %>
     <p class="link">
       <%= link_to wine.name, wine %> & <%= link_to cheese.name, cheese %>
