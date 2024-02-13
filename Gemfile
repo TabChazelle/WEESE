@@ -90,6 +90,6 @@ gem "pundit", "~> 2.3"
 
 gem "cloudinary"
 
-gem 'elasticsearch', '~> 7.10', '>= 7.10.1'
+gem 'elasticsearch', '7.10'
 
 gem "searchkick"
