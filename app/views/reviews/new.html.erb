@@ -1,17 +1,30 @@
-
-<h1> Leave a Review </h1>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-4">
-      <%= simple_form_for([@pairing, @review], data: { controller: "submit" }) do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your Pairing", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
-        <%= f.submit %>
-      <% end %>
-    </div>
+<div class="review-container">
+  <div class="pairing-info">
+    <h2>Your pairing:<br> <%= @pairing.cheese.name %> paired with <%= @pairing.wine.name %></h2>
   </div>
-
-  <%= link_to " All Pairings", pairings_path %>
-
+  <div class="review-form">
+    <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
+      <div class="field-container">
+        <%= f.input :content,
+                    as: :text,
+                    input_html: {
+                      'data-controller-characters-target': 'textarea',
+                      'data-action': 'input->controller-characters#update',
+                      maxlength: 400,
+                      placeholder: 'Write your review...'
+                    },
+                    label_html: { class: 'form-label' },
+                    wrapper: false %>
+        <div id="character-count" data-controller-characters-target="count">
+          400 characters remaining
+        </div>
+      </div>
+      <div class="field-container rating">
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your Pairing", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+      </div>
+      <div class="actions">
+        <%= f.button :submit, 'Submit Review', class: 'submit-button' %>
+      </div>
+    <% end %>
+  </div>
 </div>
