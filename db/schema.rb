@@ -78,12 +78,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_102152) do
   end
 
   create_table "pairings", force: :cascade do |t|
-    t.bigint "wines_id", null: false
-    t.bigint "cheeses_id", null: false
+    t.bigint "wine_id", null: false
+    t.bigint "cheese_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cheeses_id"], name: "index_pairings_on_cheeses_id"
-    t.index ["wines_id"], name: "index_pairings_on_wines_id"
+    t.index ["cheese_id"], name: "index_pairings_on_cheese_id"
+    t.index ["wine_id"], name: "index_pairings_on_wine_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -125,7 +125,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_102152) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "pairings", "cheeses", column: "cheeses_id"
-  add_foreign_key "pairings", "wines", column: "wines_id"
+  add_foreign_key "pairings", "cheeses"
+  add_foreign_key "pairings", "wines"
   add_foreign_key "reviews", "users"
 end

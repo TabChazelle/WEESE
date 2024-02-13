@@ -156,6 +156,8 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
+
+    google_search_results (2.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -358,6 +360,7 @@ DEPENDENCIES
   elasticsearch
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
+  google_search_results (~> 2.2)
   importmap-rails
   jbuilder
   pg (~> 1.1)

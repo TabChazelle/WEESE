@@ -1,11 +1,18 @@
 <nav class="navbar-weese">
   <div class="container-nav">
     <%= link_to root_path, class: "navbar-brand-logo" do %>
-      <%= image_tag("logo.png", alt: "Logo") %>
+      <% if controller_name == 'cheeses' && (action_name == 'index' || action_name == 'show') %>
+        <%= image_tag 'cheese_logo.png', alt: 'Cheese Logo' %>
+      <% elsif controller_name == 'wines' && (action_name == 'index' || action_name == 'show') %>
+        <%= image_tag 'wine_logo.png', alt: 'Wine Logo' %>
+      <% else %>
+        <%= image_tag 'pairing_logo.png', alt: 'Pairing Logo' %>
+      <% end %>
     <% end %>
     <!-- Add other navbar items here -->
   </div>
 </nav>
+
      <!-- Search Bar -->
     <%# <div class="d-flex flex-grow-1 mx-4">
       <%= form_with(url: search_path, local: true, method: :get, class: "input-group") do %>
