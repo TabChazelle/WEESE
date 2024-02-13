@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   end
 
   resource :weesewizard, controller: 'openai', only: [:show, :create]
-  post '/openai/openai_request', to: 'openai#openai_request'
+  post '/openai/openai_request', to: 'openai#openai_request', as: 'openai_request'
 
   resources :users do
     get 'edit_favorites', on: :member
