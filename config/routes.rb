@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
-
+  get 'search/autocomplete', to: 'search#autocomplete'
 
 end
