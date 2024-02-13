@@ -1,0 +1,8 @@
+<<div id="wines-by-country">
+  <h2 class="h2-wine">Countries in spotlight</h2>
+  <div class="scrolling-wrapper">
+    <% ["France", "Italy", "Spain", "United States", "Argentina"].each do |country| %>
+      <%= #render partial: 'country_card', locals: { country_name: country } %>
+      <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 <div class="cards-margin">
-  <h2 class="h2-wine">Top picks</h2>
+
+ <h2 class="h2-wine">Popular</h2>
 
   <div class="scrolling-wrapper">
     <% @wines.sample(8).each do |wine| %>
@@ -7,20 +8,24 @@
     <% end %>
   </div>
 
+<h2 class="h2-wine">Weese's Selection</h2>
+<div class="scrolling-wrapper">
+  <% team_selection_wines.each do |wine| %>
+    <%= render 'wines/wine_card', wine: wine %>
+  <% end %>
+</div>
 
-  <h2 class="h2-wine">Popular</h2>
 
+<div id="wines-by-country">
+  <h2 class="h2-wine">Countries in spotlight</h2>
   <div class="scrolling-wrapper">
-    <% @wines.sample(8).each do |wine| %>
-      <%= render 'wines/wine_card', wine: wine %>
+    <% ["France", "Chile", "Italy", "United States", "Spain"].each do |country| %>
+      <div class="country-card">
+        <%= image_tag "#{country.downcase}.png", alt: country, class: "flag-image" %>
+        <h3><%= country %></h3>
+      </div>
     <% end %>
   </div>
+</div>
 
- <h2 class="h2-wine">Wine by Country</h2>
-
-  <div class="scrolling-wrapper">
-    <% @wines.sample(8).each do |wine| %>
-      <%= render 'wines/wine_card', wine: wine %>
-    <% end %>
-  </div>
 </div>

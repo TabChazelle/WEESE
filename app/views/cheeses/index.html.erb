@@ -1,25 +1,29 @@
 <div class="cards-margin">
-  <h2 class="h2-cheese">Top picks</h2>
-
-  <div class="scrolling-wrapper">
-    <% @cheeses.sample(8).each do |cheese| %>
-      <%= render 'cheeses/cheese_card', cheese: cheese %>
-    <% end %>
-  </div>
-
   <h2 class="h2-cheese">Popular</h2>
-
   <div class="scrolling-wrapper">
     <% @cheeses.sample(8).each do |cheese| %>
       <%= render 'cheeses/cheese_card', cheese: cheese %>
     <% end %>
   </div>
 
-  <h2 class="h2-cheese">Cheese by Country</h2>
-
+  <h2 class="h2-cheese">Weese's Selection</h2>
   <div class="scrolling-wrapper">
-    <% @cheeses.sample(8).each do |cheese| %>
+    <% team_selection_cheeses.each do |cheese| %>
       <%= render 'cheeses/cheese_card', cheese: cheese %>
     <% end %>
   </div>
+
+
+<div id="cheeses-by-country">
+  <h2 class="h2-cheese">Countries in spotlight</h2>
+  <div class="scrolling-wrapper">
+    <% ["France", "United Kingdom", "Italy", "Netherlands", "Greece"].each do |country| %>
+      <div class="country-card">
+        <%= image_tag "#{country.downcase}.png", alt: country, class: "flag-image" %>
+        <h3><%= country %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 </div>
