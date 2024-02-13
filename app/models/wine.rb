@@ -1,4 +1,5 @@
 class Wine < ApplicationRecord
+  searchkick word_start: [:name]
   acts_as_favoritable
 
   has_many :pairings

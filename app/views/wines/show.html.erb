@@ -1,10 +1,9 @@
-
 <div class="wines-container">
     <%= image_tag @wine.image_url, alt: @wine.name %>
 
   <div class="wine-info">
     <h1 class="wine-name"><%= @wine.name %></h1>
-    <%= link_to 'Pair', pairings_path, class: 'btn pair-button' %>
+      <%= button_to 'Pair', pair_and_redirect_path(prompt: @wine.name), class: 'btn pair-button' %>
 
     <div class="wine-description">
       <h2>Description</h2>
@@ -20,8 +19,9 @@
     <% end %>
   </div>
 <% else %>
-  <p>Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p>
-<% end %>
+
+<p class="center-text-show">Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p><% end %>
+
 <p class="link-two" style="text-align: center;">
   <%= link_to 'Back to Wines', wines_path %>
 </p>

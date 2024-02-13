@@ -84,6 +84,7 @@ cheeses = Cheese.all
 wines.each do |wine|
   cheese = cheeses.sample # Randomly select a cheese
   Pairing.create(wine_id: wine.id, cheese_id: cheese.id)
+
 end
 
 
@@ -109,4 +110,5 @@ team_favorite_wines.each do |wine_data|
     w.description = wine_data[:description]
     w.image_url = wine_data[:image_url]
   end
+
 end

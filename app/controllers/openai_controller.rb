@@ -8,4 +8,10 @@ class OpenaiController < ApplicationController
       format.json { render json: { response: render_to_string(partial: 'response', locals: { openai: @openai }, formats: [:html]) } }
     end
   end
+
+  def pair_and_redirect
+    puts params[:prompt]
+    @openai = OpenaiService.new(params[:prompt]).call
+    redirect_to pairing_path(Pairing.last)
+  end
 end

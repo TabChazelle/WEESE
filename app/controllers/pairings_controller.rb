@@ -9,7 +9,7 @@ class PairingsController < ApplicationController
 
   def create
     @pairing = Pairing.new(pairing_params)
-
+    @pairing.user = current_user
     if @pairing.save
       redirect_to @pairing, notice: 'Pairing created successfully'
     else

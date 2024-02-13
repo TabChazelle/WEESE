@@ -1,9 +1,11 @@
 <%= link_to cheese_path(cheese), class: "cheese-card-link" do %>
-  <div class="cheese-card">
+<div class="cheese-card">
+  <div class="image-container">
     <%= image_tag cheese.image_url, alt: cheese.name %>
-    <h3><%= cheese.name %></h3>
-    <%# <p><%= truncate(cheese.description, length: 100) </p> %>
   </div>
+  <h3><%= cheese.name %></h3>
+  <%# <p><%= truncate(cheese.description, length: 100) </p> %>
+</div>
 <% end %>
 
 

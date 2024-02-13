@@ -2,9 +2,9 @@
 class SearchImageJob < ApplicationJob
   queue_as :default
 
-  def perform(wine_id, cheese_id)
-    wine = Wine.find(wine_id)
-    cheese = Cheese.find(cheese_id)
+  def perform(wine_name, cheese_name)
+    wine = Wine.find_by(name: wine_name)
+    cheese = Cheese.find_by(name: cheese_name)
 
     serpapi_params = {
       tbm: 'isch',
@@ -12,15 +12,32 @@ class SearchImageJob < ApplicationJob
     }
 
     # Search for wine image
-    serpapi_params[:q] = wine.name
+    return if wine && !wine.image_url.start_with?("https://source.unsplash.com/random/")
+
+    serpapi_params[:q] = "#{wine_name} Wine Bottle Wikipedia"
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
-    wine.update!(image_url: results['images_results'][0]['original']) if results['images_results']
+
+    if results[:images_results]
+      wine.update!(image_url: results[:images_results][0][:original])
+      p results[:images_results][0][:original]
+    else
+      puts "Failed to fetch image for wine: #{wine_name}"
+      puts "API response: #{results}"
+    end
 
     # Search for cheese image
-    serpapi_params[:q] = cheese.name
+    return if cheese && !cheese.image_url.start_with?("https://source.unsplash.com/random/")
+
+    serpapi_params[:q] = "#{cheese_name} Cheese Wikipedia"
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
-    cheese.update!(image_url: results['images_results'][0]['original']) if results['images_results']
+
+    if results[:images_results]
+      cheese.update!(image_url: results[:images_results][0][:original])
+    else
+      puts "Failed to fetch image for cheese: #{cheese_name}"
+      puts "API response: #{results}"
+    end
   end
 end

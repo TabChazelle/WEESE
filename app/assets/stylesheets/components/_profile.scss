@@ -29,16 +29,18 @@ body {
 }
 
 .edit-profile-link, .logout-btn {
-  background-color: #000000;
-  color: white !important;
+  display: inline-block;
+  padding: 10px 15px;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+  color: #fff !important;
   border: none;
-  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 200px;  /* adjust as needed */
+  height: 50px;  /* adjust as needed */
   text-align: center;
-  display: block;
-  margin: 20px auto;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 20px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .profile-links a {
@@ -49,19 +51,25 @@ body {
 .profile-links svg {
   fill: #333333;
 }
-.logout-btn {
-  background-color: #000000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  display: block;
-  margin: 20px auto;
-  font-size: 16px;
-}
-.logout-btn:hover, .edit-profile-link:hover {
-  background-color: #1e1e1e;
-}
+
+// I don't believe we need the below as we are now using the css in edit profile link to style the logout button
+
+// .logout-btn {
+//   display: inline-block;
+//   padding: 10px 15px;
+//   background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+//   color: #fff;
+//   border: none;
+//   border-radius: 5px;
+//   transition: background-color 0.3s ease;
+//   width: 200px;  /* adjust as needed */
+//   height: 50px;  /* adjust as needed */
+//   text-align: center;
+//   padding: 10px;
+// }
+// .logout-btn:hover, .edit-profile-link:hover {
+//   background-color: #1e1e1e;
+// }
 
 .profile-picture {
   border-radius: 50%;
