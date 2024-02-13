@@ -19,11 +19,12 @@
                 <dd>Description: <%= @pairing.cheese.description %></dd>
             </dl>
         </div>
-        <div class="card-footer">
-           <%= link_to "Rate Pairing", new_pairing_review_path(@pairing) %>
+        <div class="card-footer text-center">
+           <p class="link-two">
+            <%= link_to 'Rate Pairing', new_pairing_review_path(@pairing) %> </p>
         </div>
       </div>
-
+  <p class="link-two"> <%= link_to ' Back to My Pairings', my_pairings_path(@user) %> <p>
 
         <h3> Rating: <%= @average_rating.round(1) %> </h3>
           <div class="col-md-6 mb-4">
@@ -37,6 +38,7 @@
             <% end %>
           </div>
   </div>
+
 
 
 
