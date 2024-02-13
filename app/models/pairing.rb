@@ -7,7 +7,7 @@ class Pairing < ApplicationRecord
 
   belongs_to :wine, foreign_key: 'wine_id'
   belongs_to :cheese, foreign_key: 'cheese_id'
-  belongs_to :user
+  belongs_to :user, optional: true
   delegate :name, to: :wine, prefix: true
   delegate :name, to: :cheese, prefix: true
 
