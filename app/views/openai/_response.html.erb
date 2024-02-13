@@ -1,5 +1,8 @@
 <% if openai.present? %>
-  <p><%= openai.name %></p>
+  <p><%= openai %></p>
 <% else %>
   <p>No response yet.</p>
+  <p>
+  <%= response.html_safe %>
+</p>
 <% end %>
