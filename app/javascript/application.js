@@ -3,6 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import "./controllers/splash_screen"
+// import "./controllers/splash_screen"
 
-
+// import "./autocomplete"

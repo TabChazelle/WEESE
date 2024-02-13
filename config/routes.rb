@@ -56,6 +56,10 @@ Rails.application.routes.draw do
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
 
+  get 'search/autocomplete', to: 'search#autocomplete'
+
+
   get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+
 
 end
