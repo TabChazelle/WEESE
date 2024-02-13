@@ -1,4 +1,46 @@
 .content-container {
 margin-bottom: 18%;
+background-color: #ffffff;
 
+}
+
+.body {
+ background-color: #ffffff !important;
+}
+
+body .content-container
+{
+  margin-bottom: 18%;
+  background-color: #ffffff;
+}
+
+.h2-cheese {
+  font-weight: bolder;
+  color: #005172;
+}
+
+.h2-wine {
+  font-weight: bolder;
+  color: #5f0606;
+}
+
+
+
+.sign-in-link,
+.sign-up-link,
+.forgot-password-link,
+.confirmation-link,
+.unlock-link,
+.omniauth-button,
+.submit-button {  display: block;
+  width: 70%;
+  padding: 10px;
+  margin: 20px auto;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }

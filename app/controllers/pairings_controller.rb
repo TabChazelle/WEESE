@@ -43,7 +43,6 @@ class PairingsController < ApplicationController
     @pairing = Pairing.find(params[:id])
   end
 
-
   def pairing_params
     params.require(:pairing).permit(:wine_id, :cheese_id)
   end
