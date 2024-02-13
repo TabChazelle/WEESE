@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     @review.pairing = @pairing
 
     if @review.save
-      redirect_to @pairing, notice: 'Review was successfully created.'
+      redirect_to my_pairings_path(@user), notice: 'Review was successfully created.'
     else
       flash.now[:alert] = @review.errors.full_messages.to_sentence
       render :new
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to my_reviews_path, notice: 'Review was successfully deleted.'
+    redirect_to my_reviews_user_path, notice: 'Review was successfully deleted.'
   end
   # def destroy
   #   begin

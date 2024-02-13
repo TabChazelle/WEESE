@@ -6,3 +6,4 @@ import "bootstrap"
 // import "./controllers/splash_screen"
 
 // import "./autocomplete"
+import "./controllers/controller_characters_controller"
