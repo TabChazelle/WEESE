@@ -16,12 +16,16 @@
 </div>
 
 
-  <div id="wines-by-country">
-    <h2 class="h2-wine">Countries in spotlight</h2>
-    <div class="scrolling-wrapper">
-      <% ["France", "Chile", "Italy", "United States", "Spain"].each do |country| %>
-        <%= render partial: 'country_card', locals: { country_name: country } %>
-      <% end %>
-    </div>
+<div id="wines-by-country">
+  <h2 class="h2-wine">Countries in spotlight</h2>
+  <div class="scrolling-wrapper">
+    <% ["France", "Chile", "Italy", "United States", "Spain"].each do |country| %>
+      <div class="country-card">
+        <%= image_tag "#{country.downcase}.png", alt: country, class: "flag-image" %>
+        <h3><%= country %></h3>
+      </div>
+    <% end %>
   </div>
+</div>
+
 </div>

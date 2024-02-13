@@ -1,0 +1,9 @@
+<!-- views/countries/show_cheeses.html.erb -->
+<h1>Cheeses from <%= @country %></h1>
+
+<% @cheeses.each do |cheese| %>
+  <div>
+    <h2><%= cheese.name %></h2>
+    <!-- Add more cheese details as needed -->
+  </div>
+<% end %>
