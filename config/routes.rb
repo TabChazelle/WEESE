@@ -57,5 +57,5 @@ Rails.application.routes.draw do
   get 'edit_favorites', to: 'users#edit_favorites'
 
   get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
-
+  get 'my_pairings', to: 'users#my_pairings', as: 'my_pairings'
 end

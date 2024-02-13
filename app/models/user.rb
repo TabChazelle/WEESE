@@ -2,7 +2,7 @@
   class User < ApplicationRecord
     acts_as_favoritor
     has_many :reviews
-
+    has_many :pairings
     has_one_attached :photo
 
     has_many :favorite_wines, through: :favorites, source: :favoritable, source_type: 'Wine'

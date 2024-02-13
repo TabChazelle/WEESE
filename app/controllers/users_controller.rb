@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit_favorites, :my_reviews, :profile]
+  before_action :authenticate_user!, only: [:edit_favorites, :my_reviews, :profile, :my_pairings]
 
   def profile
     @user = current_user
@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @user = current_user
     # authorize @user, :my_reviews?
     @reviews = @user.reviews
+  end
+
+  def my_pairings
+    @user = current_user
+    @pairings = @user.pairings
   end
 
   private

@@ -6,10 +6,24 @@
   text-align: left; /* Centers text within divs */
 }
 
-.card-footer {
-  background-color: #e1e1e1;
-  color: black;
+.pairing-card {
+  // border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
   text-align: center;
+  flex: 0 0 auto;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border-radius: 5px;
+  background: white;
+  justify-content: space-between;
+  width: 315px;
+  height: fit-content;
+}
+
+.pairing-card .card-body {
+  padding: 15px;
 }
 
 i.fas.fa-star {
@@ -25,6 +39,14 @@ i.fas.fa-star {
   font-size: 8px; /* Adjust font size to make button smaller */
 }
 
+@media (max-width: 768px) {
+  .wine-card {
+    width: calc(80vw - 20px); /* Ajustez à 80% de la largeur de l'écran sur les petits appareils */
+  }
+}
+
 @media (max-width: 576px) {
-  /* Specific styles for very small screens, if needed */
+  .wine-card {
+    width: calc(75vw - 20px); /* Ajustez à 75% de la largeur de l'écran sur les très petits appareils */
+  }
 }

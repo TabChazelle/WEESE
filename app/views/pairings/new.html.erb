@@ -1,25 +1,23 @@
 
-<div class="container">
+<div class="pairings-container">
   <h1> Create Pairings</h1>
-    <div class="card md-4 mb-3 border border-warning">
+    <div class="pairing-card mt-5">
       <div class="card-body mx-auto">
         <%= simple_form_for @pairing, url: pairings_path, method: :post do |f| %>
         <div class="field">
-          <%= f.label :wines_id, "Select Wine" %>
-          <%= f.collection_select :wines_id, @wines, :id, :name %>
+          <%= f.label :wine_id, "Select Wine" %>
+          <%= f.collection_select :wine_id, @wines, :id, :name %>
         </div>
         <br>
         <div class="field">
-          <%= f.label :cheeses_id, "Select Cheese" %>
-          <%= f.collection_select :cheeses_id, @cheeses, :id, :name %>
+          <%= f.label :cheese_id, "Select Cheese" %>
+          <%= f.collection_select :cheese_id, @cheeses, :id, :name %>
         </div>
         <br>
         <%= f.submit "Create Pairing" %>
         <% end %>
       </div>
     </div>
-
-</div>
-
-
-<p>Find me in app/views/pairings/new.html.erb</p>
+    <p class="link-two">
+      <%= link_to ' Back to My Pairings', my_pairings_path(@user) %> <p>
+  </div>
