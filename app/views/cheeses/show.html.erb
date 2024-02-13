@@ -3,8 +3,8 @@
 
   <div class="cheese-info">
     <h1 class="cheese-name"><%= @cheese.name %></h1>
-    <%= link_to 'Pair', pairings_path, class: 'btn pair-button' %>
 
+    <%= button_to 'Pair', openai_request_path(prompt: @cheese.name), class: 'btn pair-button' %>
 
     <div class="cheese-description">
       <h2>Description</h2>
