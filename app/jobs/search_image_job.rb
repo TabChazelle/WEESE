@@ -14,7 +14,7 @@ class SearchImageJob < ApplicationJob
     # Search for wine image
     return if wine && !wine.image_url.start_with?("https://source.unsplash.com/random/")
 
-    serpapi_params[:q] = wine_name
+    serpapi_params[:q] = "#{wine_name} Wine Wikipedia"
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
 
