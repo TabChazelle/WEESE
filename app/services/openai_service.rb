@@ -67,7 +67,7 @@ class OpenaiService
       puts "API request: #{full_prompt}" # This will log the full prompt in the server console
       response = client.chat(
         parameters: {
-            model: "gpt-3.5-turbo",
+            model: "gpt-3.5-turbo-0125",
             messages: [{ role: "user", content: full_prompt }],
             temperature: 0.7
         }
@@ -106,7 +106,7 @@ class OpenaiService
       pairing = Pairing.create(wine_id: wine.id, cheese_id: cheese.id)
 
       # Calls the SearchImageJob and enqueues it to the ActiveJob queue
-      SearchImageJob.perform_later(wine.id, cheese.id)
+      SearchImageJob.perform_later(wine.name, cheese.name)
 
       formatted_response = "<strong>Cheese Details:</strong><br>" +
       "<strong>Name:</strong> #{cheese.name}<br>" +

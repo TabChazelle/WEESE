@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   end
 
   resource :weesewizard, controller: 'openai', only: [:show, :create]
-  post '/openai/openai_request', to: 'openai#openai_request'
+  post '/openai/openai_request', to: 'openai#openai_request', as: 'openai_request'
 
   resources :users do
     get 'edit_favorites', on: :member
@@ -56,6 +56,11 @@ Rails.application.routes.draw do
   get 'favorites', to: 'users#favorites', as: 'favorites'
   get 'edit_favorites', to: 'users#edit_favorites'
 
+  get 'search/autocomplete', to: 'search#autocomplete'
+
+
   get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+
   get 'my_pairings', to: 'users#my_pairings', as: 'my_pairings'
+
 end
