@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
 
+
+  resources :countries, param: :country_name
+
   # Define a route for the search functionality
   get 'search', to: 'search#index', as: 'search'
   get '/profile', to: 'users#profile', as: 'profile'
@@ -57,5 +60,6 @@ Rails.application.routes.draw do
   get 'edit_favorites', to: 'users#edit_favorites'
 
   get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+
 
 end
