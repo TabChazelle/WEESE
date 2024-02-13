@@ -5,8 +5,11 @@
   padding: 20px;
   align-items: center; /* Centers items on the cross axis */
   text-align: center; /* Centers text within divs */
-}
 
+  img {
+    max-width: 80%;
+  }
+}
 
 .wine-image {
   display: block; /* pour permettre la marge automatique de fonctionner */
@@ -21,6 +24,10 @@
   margin-top: 5px;
   font-size: 1.5rem; /* Title size for mobile */
   margin-bottom: 10px;
+}
+
+.center-text-show {
+  text-align: center;
 }
 
 /* Styling for pairing button */

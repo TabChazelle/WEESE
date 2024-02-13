@@ -14,7 +14,7 @@ class SearchImageJob < ApplicationJob
     # Search for wine image
     return if wine && !wine.image_url.start_with?("https://source.unsplash.com/random/")
 
-    serpapi_params[:q] = "#{wine_name} Wine Wikipedia"
+    serpapi_params[:q] = "#{wine_name} Wine Bottle Wikipedia"
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
 
@@ -29,7 +29,7 @@ class SearchImageJob < ApplicationJob
     # Search for cheese image
     return if cheese && !cheese.image_url.start_with?("https://source.unsplash.com/random/")
 
-    serpapi_params[:q] = cheese_name
+    serpapi_params[:q] = "#{cheese_name} Cheese Wikipedia"
     search = GoogleSearch.new(serpapi_params)
     results = search.get_hash
 
