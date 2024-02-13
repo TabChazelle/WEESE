@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   root to: "pages#welcome"
   get 'home', to: 'pages#home', as: 'home'
 
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get "favorites", to: "users#favorites"
+      get 'edit_favorites'
+      get 'my_reviews', to: 'users#my_reviews'
+    end
+  end
+
   resources :wines do
     resources :favorites, only: [:index, :create, :destroy]
     member do
@@ -34,18 +42,18 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :users, only: [:show, :edit, :update] do
-    member do
-      get "favorites", to: "users#favorites"
-    end
-  end
+  # resources :users, only: [:show, :edit, :update] do
+  #   member do
+  #     get "favorites", to: "users#favorites"
+  #   end
+  # end
 
   resource :weesewizard, controller: 'openai', only: [:show, :create]
   post '/openai/openai_request', to: 'openai#openai_request', as: 'openai_request'
 
-  resources :users do
-    get 'edit_favorites', on: :member
-  end
+  # resources :users do
+  #   get 'edit_favorites', on: :member
+  # end
 
   resources :paths, only: [:index]
   resources :rails_health, only: [:show], path: 'up'
@@ -59,7 +67,9 @@ Rails.application.routes.draw do
   get 'search/autocomplete', to: 'search#autocomplete'
 
 
-  get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+  # get 'my_reviews', to: 'users#my_reviews', as: 'my_reviews'
+
+  post 'pair_and_redirect', to: 'openai#pair_and_redirect', as: 'pair_and_redirect'
 
   get 'my_pairings', to: 'users#my_pairings', as: 'my_pairings'
 
