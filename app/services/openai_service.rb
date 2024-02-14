@@ -104,7 +104,11 @@ class OpenaiService
 
       # Creates a new pairing?
       pairing = Pairing.create(wine_id: wine.id, cheese_id: cheese.id)
-
+      if pairing.persisted?
+        puts "Pairing was saved successfully."
+      else
+        puts "Pairing was not saved. Errors: #{pairing.errors.full_messages.join(", ")}"
+      end
       # Calls the SearchImageJob and enqueues it to the ActiveJob queue
       SearchImageJob.perform_later(wine.name, cheese.name)
 
