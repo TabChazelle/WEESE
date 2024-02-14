@@ -1,7 +1,8 @@
 .login-header {
   text-align: center;
   color: #333;
-  font-size: 2.5em;
+  font-size: 1.5em;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -64,3 +65,10 @@
 .form-actions button:hover {
   background-color: #0056b3;
 }
+
+// .forgot-password-link {
+//   color: #007bff; /* Adjust the color to match your design */
+//   text-decoration: underline;
+//   display: block; /* Makes the link take up the full width like a block element */
+//   margin-top: 10px; /* Adjust the margin as needed */
+// }
