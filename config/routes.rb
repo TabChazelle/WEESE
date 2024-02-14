@@ -96,4 +96,6 @@ Rails.application.routes.draw do
 
   get 'cheeses/by_country/:country', to: 'cheeses#by_country', as: 'cheeses_by_country'
   get 'wines/by_country/:country', to: 'wines#by_country', as: 'wines_by_country'
+
+  get '/test_error', to: proc { raise "Test error" }
 end
