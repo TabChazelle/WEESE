@@ -7,11 +7,14 @@
 
   <div class="wine-info">
     <h1 class="wine-name"><%= @wine.name %></h1>
-      <%= button_to 'Pair', pair_and_redirect_path(prompt: @wine.name), class: 'btn pair-button' %>
 
     <div class="wine-description">
+      <h2><%= @wine.region %>, <%= @wine.country %></h2>
+      <h2>Year: <%= @wine.year %></h2>
+      <%= button_to 'PAIR', pair_and_redirect_path(prompt: @wine.name), class: 'btn pair-button' %>
       <h2>Description</h2>
       <p><%= @wine.description %></p>
+      <p>Sweetness: <%= @wine.sweetness %> - Variety: <%= @wine.variety %> </p>
     </div>
 
   </div>
@@ -25,4 +28,3 @@
 <% else %>
 
 <p class="center-text-show">Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p><% end %>
-

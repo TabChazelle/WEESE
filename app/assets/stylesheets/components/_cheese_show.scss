@@ -2,22 +2,23 @@
 .cheese-container {
   display: flex;
   flex-direction: column;
-  margin-top: 21px;
+  margin-top: 45px;
   padding: 20px;
-  align-items: center; /* Centers items on the cross axis */
-  text-align: center; /* Centers text within divs */
+  align-items: center;
+  text-align: center;
 
   img {
-    max-width: 80%;
+    width: 250px;
+    border-radius: 10px;
   }
 }
 
-/* Styling for cheese images */
+
 .cheese-image {
-  display: block; /* pour permettre la marge automatique de fonctionner */
-  margin: 0 auto; /* centre l'image horizontalement */
-  border-radius: 26px; /* bords arrondis */
-  max-width: 100%; /* s'assure que l'image ne dépasse pas la largeur de son conteneur */
+  display: block;
+  margin: 0 auto;
+  border-radius: 26px;
+  max-width: 100%;
   height: auto;
 }
 
@@ -47,13 +48,6 @@
   color: white;
 }
 
-.back-arrow {
-  position: absolute;
-  top: 57px;
-  left: 20px;
-  font-size: 24px;
-  color: #5F0606;
-}
 
 /* Styling for cheese description headings */
 .cheese-description h2 {

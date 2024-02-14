@@ -1,5 +1,5 @@
 .review-container {
-  max-width: 600px;
+  max-width: 40px;
   margin: 0 auto;
   padding: 20px;
   background: #fff;
@@ -18,6 +18,13 @@
     h2 {
       text-align: center;
       color: #555;
+    }
+
+    h4 {
+      text-align: center;
+      color: #333;
+      font-weight: bold;
+      font-size: 15px;
     }
   }
 
@@ -73,7 +80,7 @@
   top: 57px;
   left: 20px;
   font-size: 24px;
-  color: #5F0606;
+  color: #005172eb;
 }
 
 @media (max-width: 767px) {

@@ -1,4 +1,4 @@
-
+<div class="content-container">
   <div class="card col-md-6 mb-4">
     <div class="pairing-details-header">
       <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
@@ -29,21 +29,21 @@
         </div>
       </div>
 
-      <p class="link-two">
-        <%= link_to ' Back to Pairings', pairings_path %>
-      </p>
+    <p class="link-two">
+      <%= link_to ' Back to Pairings', pairings_path %>
+    </p>
 
-      <div class="col-md-6 mb-4">
-        <% @reviews.each do |review| %>
-          <div class="d-inline-flex">
-            <% review.rating.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </div>
-          <p><%= review.content %></p>
+    <div class="col-md-6 mb-4">
+      <% @reviews.each do |review| %>
+        <div class="d-inline-flex">
+         <% review.rating.times do %>
+          <i class="fas fa-star"></i>
         <% end %>
       </div>
+      <p><%= review.content %></p>
+      <% end %>
     </div>
+  </div>
 
     <% if user_signed_in? %>
       <div class="favorite-icon">
@@ -55,4 +55,35 @@
       <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
     <% end %>
   </div>
+</div>
 
+<%= link_to pairings_path, class: "back-arrow-pairing-details" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
+
+  <div class="review-form">
+    <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
+      <div class="field-container">
+        <%= f.input :content,
+                    as: :text,
+                    input_html: {
+                      'data-controller-characters-target': 'textarea',
+                      'data-action': 'input->controller-characters#update',
+                      maxlength: 400,
+                      placeholder: 'Write your review...*'
+                    },
+                    label_html: { class: 'form-label' },
+                    wrapper: false %>
+        <div id="character-count" data-controller-characters-target="count">
+          400 characters remaining
+        </div>
+      </div>
+      <div class="field-container rating">
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your Pairing", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+      </div>
+      <div class="actions">
+        <%= f.button :submit, 'Submit Review', class: 'submit-button' %>
+      </div>
+    <% end %>
+  </div>
+</div>
