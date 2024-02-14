@@ -53,7 +53,7 @@
     .rating {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 40px;
 
       .rating-input {
         // Add specific styles if necessary
@@ -68,10 +68,18 @@
   }
 }
 
+.back-arrow {
+  position: absolute;
+  top: 57px;
+  left: 20px;
+  font-size: 24px;
+  color: #5F0606;
+}
+
 @media (max-width: 767px) {
   .review-container {
     max-width: 90%;
     padding: 10px;
-    margin-top: 16px;
+    margin-top: 45px;
   }
 }

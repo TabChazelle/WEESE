@@ -1,3 +1,7 @@
+<%= link_to wines_path, class: "back-arrow" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
+
 <div class="wines-container">
     <%= image_tag @wine.image_url, alt: @wine.name %>
 
@@ -22,6 +26,3 @@
 
 <p class="center-text-show">Please <%= link_to 'sign in', new_user_session_path %> to add wines to your favorites.</p><% end %>
 
-<p class="link-two" style="text-align: center;">
-  <%= link_to 'Back to Wines', wines_path %>
-</p>
