@@ -39,6 +39,9 @@ class WinesController < ApplicationController
     ].compact # Compact to remove nil values if a wine is not found
   end
 
+  def by_country
+    @wines = Wine.where(country: params[:country])
+  end
 
   private
 

@@ -46,6 +46,10 @@ class CheesesController < ApplicationController
   selected_cheeses
   end
 
+  def by_country
+    @cheeses = Cheese.where(country: params[:country])
+  end
+
   private
 
   def set_cheese
