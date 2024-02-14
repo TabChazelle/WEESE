@@ -1,7 +1,6 @@
-<div class="pairings-container">
-  <h1>Pairing Details</h1>
+
   <div class="card col-md-6 mb-4">
-    <div class="card-header card-title text-center">
+    <div class="pairing-details-header">
       <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
     </div>
     <div class="card-body">
@@ -29,15 +28,11 @@
           </dl>
         </div>
       </div>
-      <div class="card-footer text-center">
-        <p class="rate-pairing-details">
-          <%= link_to 'Rate Pairing', new_pairing_review_path(@pairing) %>
-        </p>
-      </div>
+
       <p class="link-two">
         <%= link_to ' Back to Pairings', pairings_path %>
       </p>
-      <h3> Rating: <%= @average_rating.round(1) %> </h3>
+
       <div class="col-md-6 mb-4">
         <% @reviews.each do |review| %>
           <div class="d-inline-flex">
@@ -49,6 +44,7 @@
         <% end %>
       </div>
     </div>
+
     <% if user_signed_in? %>
       <div class="favorite-icon">
         <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
@@ -59,4 +55,4 @@
       <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
     <% end %>
   </div>
-</div>
+
