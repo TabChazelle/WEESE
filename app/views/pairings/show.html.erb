@@ -1,7 +1,9 @@
 <div class="pairings-container">
   <h1>Pairing Details</h1>
   <div class="card col-md-6 mb-4">
-    <div class="card-header card-title text-center"> <%= @pairing.wine.name  %> with <%= @pairing.cheese.name %></div>
+    <div class="card-header card-title text-center">
+      <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
+    </div>
     <div class="card-body">
       <div class="topbodypairing" style="background-image: url(<%= @pairing.wine.image_url %>);">
         <div class="pairing-content-container">
@@ -27,45 +29,34 @@
           </dl>
         </div>
       </div>
-   
-           <div class="card-footer text-center">
-           <p class="rate-pairing-details">
-          <%= link_to 'Rate Pairing', new_pairing_review_path(@pairing) %> </p>
-          </div>
-          <p class="link-two"> <%= link_to ' Back to Pairings', pairings_path %> <p>
-
-        <h3> Rating: <%= @average_rating.round(1) %> </h3>
-          <div class="col-md-6 mb-4">
-            <% @reviews.each do |review| %>
-              <div class="d-inline-flex">
-                <% review.rating.times do %>
-                  <i class="fas fa-star" ></i>
-                <% end %>
-              </div>
-              <p> <%= review.content %> </p>
+      <div class="card-footer text-center">
+        <p class="rate-pairing-details">
+          <%= link_to 'Rate Pairing', new_pairing_review_path(@pairing) %>
+        </p>
+      </div>
+      <p class="link-two">
+        <%= link_to ' Back to Pairings', pairings_path %>
+      </p>
+      <h3> Rating: <%= @average_rating.round(1) %> </h3>
+      <div class="col-md-6 mb-4">
+        <% @reviews.each do |review| %>
+          <div class="d-inline-flex">
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
             <% end %>
           </div>
-  </div>
-  <p class="back-pairing-details"> <%= link_to ' Back to My Pairings', pairings_path(@user) %> </p>
-  <h3> Rating: <%= @average_rating.round(1) %> </h3>
-  <div class="col-md-6 mb-4">
-    <% @reviews.each do |review| %>
-      <div class="d-inline-flex">
-        <% review.rating.times do %>
-          <i class="fas fa-star" ></i>
+          <p><%= review.content %></p>
         <% end %>
       </div>
-      <p> <%= review.content %> </p>
+    </div>
+    <% if user_signed_in? %>
+      <div class="favorite-icon">
+        <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
+          <i class="<%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
     <% end %>
   </div>
 </div>
-
-<% if user_signed_in? %>
-  <div class="favorite-icon">
-    <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
-      <i class=" <%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
-    <% end %>
-  </div>
-<% else %>
-  <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
-<% end %>
