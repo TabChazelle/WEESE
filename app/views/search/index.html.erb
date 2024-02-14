@@ -39,7 +39,7 @@
     <% end %>
   <% end %>
 
-  <% if @wines.empty? && @cheeses.empty? %>
-    <p>No results found</p>
+  <% if params[:query].present? && @wines.empty? && @cheeses.empty? %>
+    <p>No results found for "<%= params[:query] %>"</p>
   <% end %>
 </div>

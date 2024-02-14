@@ -1,0 +1,20 @@
+
+<h1>Wines from <%= params[:country] %></h1>
+
+<div class="results-container">
+  <% if @wines.any? %>
+    <% @wines.each do |wine| %>
+      <%= link_to wine_path(id: wine.id), class: "wine-card-result" do %>
+        <div class="result-card">
+          <%= image_tag wine.image_url, alt: wine.name %>
+          <div>
+            <h4><%= wine.name %></h4>
+            <p><%= wine.country %>, <%= wine.region %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>No wines found from <%= params[:country] %></p>
+  <% end %>
+</div>
