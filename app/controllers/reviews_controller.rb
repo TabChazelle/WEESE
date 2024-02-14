@@ -7,17 +7,14 @@ class ReviewsController < ApplicationController
 
   def create
     @pairing = Pairing.find(params[:pairing_id])
-
     unless @pairing
       flash[:alert] = "Pairing not found."
       redirect_to root_path
       return
     end
-
     @review = Review.new(review_params)
     @review.user = current_user
     @review.pairing = @pairing
-
     if @review.save
       redirect_to my_pairings_path(@user), notice: 'Review was successfully created.'
     else
