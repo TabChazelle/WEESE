@@ -1,31 +1,23 @@
 <div class="pairings-container">
   <h1>Pairing History</h1>
-  <p class="to-my-reviews">
-    <%= link_to 'My Reviews', my_reviews_path(@user) %>
-  </p>
-  <div class="container mt-5">
-    <div class="row">
-      <% @pairings.each do |pairing| %>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h4 class="card-title text-center mt-3"> Wine & Cheese Pairing:</h4>
-            <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
-            <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
-            <p>
-              <% pairing.reviews.average(:rating).to_f  %>
-              <div class="d-inline-flex">
-                <% pairing.reviews.average(:rating).to_i.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-              </div>
-            </p>
-            <p class="link-two">
-              <%= link_to "Pairing Details", pairing %>
-            </p>
-          </div>
+  <div class="pairings-grid">
+    <% @pairings.each do |pairing| %>
+      <div class="pairing-card">
+        <img src="<%= pairing.cheese.image_url %>" alt="Cheese Image" class="cheese-img">
+        <img src="<%= pairing.wine.image_url %>" alt="Wine Image" class="wine-img">
+        <h4 class="card-title"><%= pairing.wine.name %> with <%= pairing.cheese.name %> </h4>
+        <div class="rating-stars">
+          <% pairing.reviews.average(:rating).to_i.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
         </div>
+        <p class="link-pairing-details">
+          <%= link_to "Pairing Details", pairing, class: 'pairing-details-btn' %>
+        </p>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+    <p class="to-my-reviews">
+    <%= link_to 'My Reviews', my_reviews_path(@user), class: 'my-reviews-btn' %>
+  </p>
+</div>

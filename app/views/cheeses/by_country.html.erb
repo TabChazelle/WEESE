@@ -1,4 +1,8 @@
-<h1>Cheeses from <%= params[:country] %></h1>
+<%= link_to cheeses_path, class: "back-arrow" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
+
+<h1 class="h1country">Cheeses from <%= params[:country] %></h1>
 
 <div class="results-container">
   <% if @cheeses.any? %>
@@ -14,6 +18,6 @@
       <% end %>
     <% end %>
   <% else %>
-    <p>No cheeses found from <%= params[:country] %></p>
+    <p>No cheeses from <%= params[:country] %> found. </p>
   <% end %>
 </div>
