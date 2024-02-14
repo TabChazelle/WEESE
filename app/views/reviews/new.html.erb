@@ -1,3 +1,7 @@
+<%= link_to pairings_path, class: "back-arrow" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
+
 <div class="review-container">
   <div class="pairing-info">
     <h2>Your pairing:<br> <%= @pairing.cheese.name %> paired with <%= @pairing.wine.name %></h2>

@@ -2,6 +2,7 @@
 .cheese-container {
   display: flex;
   flex-direction: column;
+  margin-top: 21px;
   padding: 20px;
   align-items: center; /* Centers items on the cross axis */
   text-align: center; /* Centers text within divs */
@@ -44,6 +45,14 @@
 .pair-button:hover {
   background-color: #000000;
   color: white;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 57px;
+  left: 20px;
+  font-size: 24px;
+  color: #5F0606;
 }
 
 /* Styling for cheese description headings */

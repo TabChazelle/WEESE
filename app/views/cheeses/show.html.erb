@@ -1,3 +1,7 @@
+<%= link_to cheeses_path, class: "back-arrow" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
+
 <div class="cheese-container">
     <%= image_tag @cheese.image_url, alt: @cheese.name %>
 
@@ -23,7 +27,3 @@
 <% else %>
   <p class="center-text-show">Please <%= link_to 'sign in', new_user_session_path %> to add cheese to your favorites.</p>
 <% end %>
-
-<p class="link-two" style="text-align: center;">
-  <%= link_to 'Back to Cheeses', cheeses_path %>
-</p>
