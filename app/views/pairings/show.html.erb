@@ -29,10 +29,9 @@
         </div>
       </div>
 
-    <p class="link-two">
-      <%= link_to ' Back to Pairings', pairings_path %>
-    </p>
-
+      <div class="pairings-path-button">
+        <%= link_to 'Back to Pairings', pairings_path, class: 'link-two-pairings' %>
+      </div>
     <div class="col-md-6 mb-4">
       <% @reviews.each do |review| %>
         <div class="d-inline-flex">
