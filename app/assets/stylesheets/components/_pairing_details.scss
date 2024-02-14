@@ -4,10 +4,13 @@
   padding: 20px;
   align-items: center; /* Centers items on the cross axis */
   text-align: left; /* Centers text within divs */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .pairing-card {
   // border: 1px solid #ccc;
+  background-color: ghostwhite;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -22,8 +25,71 @@
   height: fit-content;
 }
 
+.card, .col-md-6, .mb-4 {
+  border-radius:  5px !important;
+  background-color: ghostwhite;
+}
+
+.card-footer, .text-center {
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.card-header, .card-title, .text-center{
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bolder;
+  background-color: rgb(226, 226, 236);
+  color: rgb(0, 0, 0); /* For text color */
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+
+.rate-pairing-details a, .back-pairing-details a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.topbodypairing, .bottombodypairing {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 5px;
+  color: rgb(217, 255, 0);
+  -webkit-text-stroke: 1px black;
+}
+
+.pairing-content-container{
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.836); /* Change color and transparency as needed */
+  color: rgb(0, 0, 0); /* Change as needed */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Change as needed */
+  padding: 10px;
+}
+
 .pairing-card .card-body {
   padding: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 i.fas.fa-star {
@@ -37,6 +103,11 @@ i.fas.fa-star {
   font-weight: bold;
   padding: 2px; /* Adjust padding to change button size */
   font-size: 8px; /* Adjust font size to make button smaller */
+}
+
+.divider {
+  border-top: 1px solid #000; /* Change color as needed */
+  margin: 10px 0; /* Adjust margin as needed */
 }
 
 @media (max-width: 768px) {
