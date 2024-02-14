@@ -22,6 +22,7 @@ class PairingsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @pairing = Pairing.find(params[:id])
     @reviews = @pairing.reviews
     @average_rating = @reviews.average(:rating).to_f
