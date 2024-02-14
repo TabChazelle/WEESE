@@ -2,94 +2,57 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  align-items: center; /* Centers items on the cross axis */
-  text-align: left; /* Centers text within divs */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  text-align: left;
+  margin-top: 5px;
+}
 
+.pairings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .pairing-card {
-  // border: 1px solid #ccc;
-  background-color: ghostwhite;
-  padding: 10px;
-  margin-bottom: 10px;
+  background-color: #fbfbfb;
+  padding: 20px;
   border-radius: 5px;
-  text-align: center;
-  flex: 0 0 auto;
-  margin-right: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  border-radius: 5px;
-  background: white;
-  justify-content: space-between;
   width: 315px;
-  height: fit-content;
-}
-
-.card, .col-md-6, .mb-4 {
-  border-radius:  5px !important;
-  background-color: ghostwhite;
-}
-
-.card-footer, .text-center {
-  border-bottom-left-radius: 5px !important;
-  border-bottom-right-radius: 5px !important;
-}
-
-.card-header, .card-title, .text-center{
+  box-shadow: 0px 0px 4px -2px #000000;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cheese-img, .wine-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 5%;
+  margin: 10px;
+}
+
+.card-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: bolder;
-  background-color: rgb(226, 226, 236);
-  color: rgb(0, 0, 0); /* For text color */
-  border-top-left-radius: 5px !important;
-  border-top-right-radius: 5px !important;
+  color: rgb(0, 0, 0);
+  margin: 10px 0;
 }
 
-.rate-pairing-details a, .back-pairing-details a, .to-my-reviews a {
+.my-reviews-btn, .pairing-details-btn {
   display: inline-block;
   padding: 10px 15px;
   text-decoration: none;
   background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
-  color: #fff !important;
+  color: #fff;
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
   width: 200px;
   height: 50px;
   text-align: center;
-  padding: 10px;
   margin-top: 15px;
-}
-
-.topbodypairing, .bottombodypairing {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  padding: 10px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  border-radius: 5px;
-  color: rgb(217, 255, 0);
-  -webkit-text-stroke: 1px black;
-}
-
-.pairing-content-container{
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.836); /* Change color and transparency as needed */
-  color: rgb(0, 0, 0); /* Change as needed */
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Change as needed */
-  padding: 10px;
-}
-
-.pairing-card .card-body {
-  padding: 15px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  display: flex;
-  justify-content: space-between;
 }
 
 i.fas.fa-star {
@@ -97,27 +60,14 @@ i.fas.fa-star {
   font-size: 25px;
 }
 
-.delete-button {
-  background-color: #f77070;
-  color: white;
-  font-weight: bold;
-  padding: 2px; /* Adjust padding to change button size */
-  font-size: 8px; /* Adjust font size to make button smaller */
-}
-
-.divider {
-  border-top: 1px solid #000; /* Change color as needed */
-  margin: 10px 0; /* Adjust margin as needed */
-}
-
-@media (max-width: 768px) {
-  .wine-card {
-    width: calc(80vw - 20px); /* Ajustez à 80% de la largeur de l'écran sur les petits appareils */
+@media (max-width: 992px) {
+  .pairing-card {
+    flex-basis: calc(50% - 20px);
   }
 }
 
 @media (max-width: 576px) {
-  .wine-card {
-    width: calc(75vw - 20px); /* Ajustez à 75% de la largeur de l'écran sur les très petits appareils */
+  .pairing-card {
+    flex-basis: 100%;
   }
 }
