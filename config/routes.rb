@@ -86,11 +86,15 @@ Rails.application.routes.draw do
   get 'my_pairings', to: 'users#my_pairings', as: 'my_pairings'
 
 
-  # Route for showing cheeses by country
-  get 'cheeses/show_by_country/:country_name', to: 'cheeses#show_by_country', as: 'show_cheeses_by_country'
+  # # Route for showing cheeses by country
+  # get 'cheeses/show_by_country/:country_name', to: 'cheeses#show_by_country', as: 'show_cheeses_by_country'
 
-  # Route for showing cheeses by country under the countries namespace
-  namespace :countries do
-    get 'cheeses/:country_name', to: 'cheeses#show_by_country', as: 'show_cheeses_by_country'
-  end
+  # # Route for showing cheeses by country under the countries namespace
+  # namespace :countries do
+  #   get 'cheeses/:country_name', to: 'cheeses#show_by_country', as: 'show_cheeses_by_country'
+  # end
+
+  get 'cheeses/by_country/:country', to: 'cheeses#by_country', as: 'cheeses_by_country'
+  get 'wines/by_country/:country', to: 'wines#by_country', as: 'wines_by_country'
+
 end

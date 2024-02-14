@@ -28,7 +28,6 @@ body .content-container
 
 .sign-in-link,
 .sign-up-link,
-.forgot-password-link,
 .confirmation-link,
 .unlock-link,
 .omniauth-button,
@@ -46,9 +45,7 @@ body .content-container
 }
 
 .pair-button,
-.btn-primary,
-.edit-profile-link,
-.logout-btn {
+.btn-primary {
   background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
   color: white;
   border: none;
@@ -57,6 +54,7 @@ body .content-container
   display: block;
   margin: 20px auto;
   font-size: 16px;
+
 }
 
 .btn-ai {
@@ -82,7 +80,7 @@ body .content-container
   text-align: center;
   flex: 0 0 auto;
   margin-right: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px, inset rgba(0, 0, 0, 0.1) 1px 0px 2px;
   border-radius: 5px;
   background: white;
   justify-content: space-between;
@@ -98,4 +96,41 @@ body .content-container
 .h3 {
   margin-top: 5px; /* Optional: Adjust margin for the heading */
   text-align: center; /* Optional: Center align the heading */
+}
+
+
+.sign-in-link, .sign-up-link, .forgot-password-link, .confirmation-link, .unlock-link, .omniauth-button, .submit-button {
+  display: block;
+  width: 70%;
+  padding: 10px;
+  margin: 20px auto;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.signup-container input[type="submit"] {
+  display: block;
+  width: 70%;
+  padding: 10px;
+  margin: 20px auto;
+  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.card {
+
+--bs-card-bg: #fffdfd !important;
+
 }
