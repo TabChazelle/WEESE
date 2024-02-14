@@ -1,8 +1,13 @@
 
 <div class="pairings-container">
   <h1> My Pairings</h1>
+
     <p class="link-two">
       <%= link_to 'Create a Pairing', new_pairing_path(@pairing) %> </p>
+
+    <p class="link-two">
+      <%= link_to 'My Reviews',  my_reviews_user_path(@user) %> </p>
+
     <div class="container mt-3">
       <div class="row">
         <% @pairings.each do |pairing| %>
@@ -10,6 +15,9 @@
             <div class="pairing-card">
               <div class="card-body text-center">
                 <h4 class="card-title text-center mt-3">Wine & Cheese Pairing:</h4><br>
+
+
+
                 <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
                 <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
                 <p class="link-two">

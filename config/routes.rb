@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'my_reviews', to: 'users#my_reviews'
     end
   end
+  resources :reviews, only: [:destroy]
 
   resources :wines do
     resources :favorites, only: [:index, :create, :destroy]

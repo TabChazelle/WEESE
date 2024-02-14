@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to my_reviews_user_path, notice: 'Review was successfully deleted.'
+    redirect_to my_reviews_user_path(@review.user), notice: 'Review was successfully deleted.'
   end
   # def destroy
   #   begin
