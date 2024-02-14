@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: "pages#welcome"
   get 'home', to: 'pages#home', as: 'home'
@@ -96,5 +96,4 @@ Rails.application.routes.draw do
 
   get 'cheeses/by_country/:country', to: 'cheeses#by_country', as: 'cheeses_by_country'
   get 'wines/by_country/:country', to: 'wines#by_country', as: 'wines_by_country'
-
 end
