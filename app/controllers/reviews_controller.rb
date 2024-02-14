@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.pairing = @pairing
     if @review.save
-      redirect_to pairings_path(@pairing), notice: 'Review was successfully created.'
+      redirect_to pairing_path(@pairing), notice: 'Review was successfully created.'
     else
       flash.now[:alert] = @review.errors.full_messages.to_sentence
       render :new
