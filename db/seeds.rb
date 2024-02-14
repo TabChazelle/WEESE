@@ -51,7 +51,7 @@ team_favorite_cheeses = [
   { name: "Gouda", softness: "Semi-Hard", country: "Netherlands", region: "South Holland", milk: "Cow", description: "A mild, nutty cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
   { name: "Brie", softness: "Soft", country: "France", region: "Île-de-France", milk: "Cow", description: "A soft, creamy cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
   { name: "Roquefort", softness: "Blue", country: "France", region: "Roquefort-sur-Soulzon", milk: "Sheep", description: "A tangy, crumbly cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
-  { name: "Easy Cheese", softness: "Processed", country: "United States", region: "N/A", milk: "Cow", description: "A disgrace.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
+  { name: "Easy Cheese", softness: "Processed", country: "United States", region: "Florida", milk: "Cow", description: "A disgrace.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
   { name: "Feta", softness: "Brined", country: "Greece", region: "Thessaly", milk: "Sheep", description: "A salty, crumbly cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
   { name: "Parmesan", softness: "Hard", country: "Italy", region: "Parma", milk: "Cow", description: "A hard, granular cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" },
   { name: "Camembert", softness: "Soft", country: "France", region: "Normandy", milk: "Cow", description: "A soft, creamy, surface-ripened cow's milk cheese.", image_url: "https://source.unsplash.com/random/200x200?cheese" }
