@@ -8,11 +8,13 @@
   <div class="cheese-info">
     <h1 class="cheese-name"><%= @cheese.name %></h1>
 
-    <%= button_to 'Pair', pair_and_redirect_path(prompt: @cheese.name), class: 'btn pair-button' %>
 
     <div class="cheese-description">
+      <p><%= @cheese.region %>, <%= @cheese.country %></p>
+      <%= button_to 'PAIR', pair_and_redirect_path(prompt: @cheese.name), class: 'btn pair-button' %>
       <h2>Description</h2>
       <p><%= @cheese.description %></p>
+      <p>Milk type: <%= @cheese.milk %> - Softness: <%= @cheese.softness %> </p>
     </div>
 
   </div>
