@@ -1,16 +1,25 @@
 <div class="pairings-container">
-<h1>Pairings History</h1>
+<h1>Pairing History</h1>
+  <button class="btn-primary">
+    <%= link_to 'My Reviews', my_reviews_path(@user) %>
+  </button>
 <div class="container mt-5">
   <div class="row">
     <% @pairings.each do |pairing| %>
     <div class="col-md-4 mb-4">
         <div class="card">
           <div class="card-body text-center">
-          <h4 class="card-title text-center mt-3">Wine & Cheese Pairing:</h4>
-          <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
-          <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
+            <h4 class="card-title text-center mt-3"> Wine & Cheese Pairing:</h4>
+            <p><strong>Wine:</strong> <%= pairing.wine.name %></p>
+            <p><strong>Cheese:</strong> <%= pairing.cheese.name %></p>
+            <p><% pairing.reviews.average(:rating).to_f  %>
+            <div class="d-inline-flex">
+              <% pairing.reviews.average(:rating).to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
         <p class="link-two">
-        <%= link_to "View Pairing", pairing %>
+        <%= link_to "Pairing Details", pairing %>
           </p>
           </div>
         </div>
