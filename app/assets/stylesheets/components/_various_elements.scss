@@ -1,7 +1,12 @@
 .content-container {
-margin-bottom: 18%;
-background-color: #ffffff;
+  margin-bottom: 18%;
+  background-color: #ffffff;
 
+}
+
+.content-container-two {
+margin-left: 3px;
+margin-right: 3px;
 }
 
 .body {
@@ -14,6 +19,10 @@ body .content-container
   background-color: #ffffff;
 }
 
+body .content-container-two
+{
+  margin: 0%;
+}
 .h2-cheese {
   font-weight: bolder;
   color: #005172;
@@ -154,5 +163,5 @@ body .content-container
   top: 57px;
   left: 20px;
   font-size: 24px;
-  color: #5F0606;
+  color: #005172;
 }

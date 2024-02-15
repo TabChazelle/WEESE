@@ -1,7 +1,7 @@
 <div class="pairings-container1">
   <h1>Pairing History</h1>
   <div class="pairings-grid">
-    <% @pairings.each do |pairing| %>
+    <% @pairings.sample(3).each do |pairing| %>
       <div class="pairing-card1">
         <img src="<%= pairing.cheese.image_url %>" alt="Cheese Image" class="cheese-img">
         <img src="<%= pairing.wine.image_url %>" alt="Wine Image" class="wine-img">

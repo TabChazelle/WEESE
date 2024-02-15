@@ -28,10 +28,8 @@
           </dl>
         </div>
       </div>
-
-      <div class="pairings-path-button">
-        <%= link_to 'Back to Pairings', pairings_path, class: 'link-two-pairings' %>
-      </div>
+<br>
+  <h2>Reviews</h2>
     <div class="col-md-6 mb-4">
       <% @reviews.each do |review| %>
         <div class="d-inline-flex">
@@ -39,10 +37,11 @@
           <i class="fas fa-star"></i>
         <% end %>
       </div>
+
       <p><%= review.content %></p>
       <% end %>
-    </div>
-  </div>
+
+
 
     <% if user_signed_in? %>
       <div class="favorite-icon">
@@ -59,6 +58,7 @@
 <%= link_to pairings_path, class: "back-arrow-pairing-details" do %>
   <%= icon('fa-solid', 'arrow-left') %>
 <% end %>
+
 
   <div class="review-form">
     <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
@@ -86,3 +86,5 @@
     <% end %>
   </div>
 </div>
+  </div>
+  </div>
