@@ -33,16 +33,17 @@
   }
 
   .btn-ai {
-    background-color: #333;
+    background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
     border: none;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 55px;
     text-transform: uppercase;
     cursor: pointer;
-    display: inline-block;
-    width: 100%;
+    display: block;
     overflow: hidden;
     white-space: nowrap;
+    border-radius: 5px;
+    margin: auto;
 
     &:active {
       background-color: #474747;

@@ -3,7 +3,11 @@
   <div class="image-container">
     <%= image_tag wine.image_url, alt: wine.name %>
   </div>
+  <div class="index-card-text">
   <h3><%= wine.name %></h3>
+  <h6><%= wine.region %></h6>
+  <h6><%= wine.country %></h6>
+  </div>
   <%# <p><%= truncate(wine.description, length: 100) </p> %>
 </div>
 <% end %>
