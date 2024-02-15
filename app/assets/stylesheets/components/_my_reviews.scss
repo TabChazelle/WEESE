@@ -1,0 +1,25 @@
+.back-arrow-pairing-details-fav {
+  position: absolute;
+  top: 63px;
+  left: 20px;
+  font-size: 24px;
+  color: #005172eb;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-title {
+  margin: 0; /* Removes default margins from <h5> if needed */
+  flex-grow: 1; /* Allows the title to take up available space */
+}
+
+.delete-icon {
+  color: #005172eb; /* Bootstrap danger color for consistency */
+  cursor: pointer;
+  /* Adjust the size as needed */
+  font-size: 1.5rem;
+}
