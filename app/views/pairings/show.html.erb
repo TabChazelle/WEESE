@@ -1,9 +1,26 @@
+<div class="icons-container">
+  <%= link_to pairings_path, class: "back-arrow-pairing-details" do %>
+    <%= icon('fa-solid', 'arrow-left') %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <div class="favorite-icon1">
+      <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true, class: "hearticon" do %>
+        <i class="<%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <%= link_to 'sign in', new_user_session_path, class: "sign-in-link" %>
+  <% end %>
+</div>
+
+
 <div class="content-container">
   <div class="card col-md-6 mb-4">
     <div class="pairing-details-header">
       <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
     </div>
-    <div class="card-body">
+    <div class="card-body mb-1">
       <div class="topbodypairing" style="background-image: url(<%= @pairing.wine.image_url %>);">
         <div class="pairing-content-container">
           <h5><strong>Wine: <%= @pairing.wine.name %></strong></h5>
@@ -29,8 +46,15 @@
         </div>
       </div>
 <br>
-  <h2>Reviews</h2>
-    <div class="col-md-6 mb-4">
+
+</div>
+
+  <div class="review-form">
+
+    <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
+      <div class="field-container">
+        <h2>Reviews</h2>
+        <div class="col-md-6 mb-4">
       <% @reviews.each do |review| %>
         <div class="d-inline-flex">
          <% review.rating.times do %>
@@ -40,29 +64,7 @@
 
       <p><%= review.content %></p>
       <% end %>
-
-
-
-    <% if user_signed_in? %>
-      <div class="favorite-icon">
-        <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
-          <i class="<%= @pairing.favorited_by?(current_user) ? 'fas fa-heart' : 'far fa-heart' %>"></i>
-        <% end %>
-      </div>
-    <% else %>
-      <p>Please <%= link_to 'sign in', new_user_session_path %> to add pairings to your favorites.</p>
-    <% end %>
-  </div>
-</div>
-
-<%= link_to pairings_path, class: "back-arrow-pairing-details" do %>
-  <%= icon('fa-solid', 'arrow-left') %>
-<% end %>
-
-
-  <div class="review-form">
-    <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
-      <div class="field-container">
+    </div>
         <%= f.input :content,
                     as: :text,
                     input_html: {
