@@ -1,26 +1,29 @@
+<%= link_to profile_path, class: "back-arrow-pairing-details-fav" do %>
+  <%= icon('fa-solid', 'arrow-left') %>
+<% end %>
 
-<div class="container">
+<div class="container mt-5">
   <h1>My Reviews</h1>
-  <p class="to-my-pairings">
-    <%= link_to 'My Pairings', pairings_path %>
-  </p>
   <div class="row">
     <% @reviews.each do |review| %>
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h3 class="card-title">Review:</h3>
-          <h5><%= review.pairing.wine_name %> with <%= review.pairing.cheese_name %></h5>
-          <div class="d-inline-flex">
-            <% review.rating.times do %>
-            <i class="fas fa-star"></i>
-            <% end %>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="review-header">
+              <h5 class="review-title"><%= review.pairing.wine_name %> with <%= review.pairing.cheese_name %></h5>
+              <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this review?' }, class: 'delete-icon' do %>
+                <%= icon('fas', 'trash') %>
+              <% end %>
+            </div>
+            <div class="d-inline-flex">
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+            <p class="card-text"><%= review.content %></p>
           </div>
-          <p class="card-text"><%= review.content %></p>
-          <%= link_to 'Delete', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this review?' }, class: 'btn btn-danger delete-button' %>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
