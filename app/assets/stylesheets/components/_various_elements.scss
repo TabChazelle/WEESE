@@ -66,18 +66,30 @@ body .content-container-two
 
 }
 
-.btn-ai {
-  background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
-  border: none;
-  color: #fff;
-  padding: 10px 15px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
+// below was moved to openai.scss
+// .btn-ai {
+//   background: linear-gradient(to bottom right, #5f0606d1 0%, #005172eb 100%);
+//   border: none;
+//   color: #fff;
+//   padding: 10px 15px;
+//   text-transform: uppercase;
+//   cursor: pointer;
+//   display: inline-block;
+//   width: 100%;
+//   overflow: hidden;
+//   white-space: nowrap;
+
+//   &:active {
+//     background-color: #474747;
+//     box-shadow: 0 0 10px rgba(255,0,0,0.5),
+//                 0 0 20px rgba(255,127,0,0.5),
+//                 0 0 30px rgba(255,255,0,0.5),
+//                 0 0 40px rgba(0,255,0,0.5),
+//                 0 0 50px rgba(0,0,255,0.5),
+//                 0 0 60px rgba(46,43,95,0.5),
+//                 0 0 70px rgba(139,0,255,0.5);
+//   }
+// }
 
 
 .country-card {
