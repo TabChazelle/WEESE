@@ -29,7 +29,7 @@ cheeses = [
   { name: "Brie", softness: "Soft", country: "France", region: "Île-de-France", milk: "Cow", description: "A soft, creamy cheese.", image_url: "https://upload.wikimedia.org/wikipedia/commons/8/88/Brie_01.jpg" },
   { name: "Mozzarella", softness: "Fresh", country: "Italy", region: "Campania", milk: "Buffalo", description: "A soft, stretchy cheese.", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Mozzarella_di_bufala3.jpg/1200px-Mozzarella_di_bufala3.jpg" },
   { name: "Swiss", softness: "Hard", country: "Switzerland", region: "Emmental", milk: "Cow", description: "A medium-hard cheese with distinctive holes.", image_url: "https://www.foodandwine.com/thmb/t-0AlYwHrzDhh_YxxJQRRLYuQ8Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-71285433-2000-0888f731cdbb4f0e9236ea9f43bdf930.jpg" },
-  { name: "Stilton", softness: "Blue", country: "United Kingdom", region: "Derbyshire, Leicestershire, and Nottinghamshire", milk: "Cow", description: "An English cheese, known for its characteristic strong smell and taste.", image_url: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Blue_Stilton_01.jpg" },
+  { name: "Stilton", softness: "Blue", country: "United Kingdom", region: "Various", milk: "Cow", description: "An English cheese, known for its characteristic strong smell and taste.", image_url: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Blue_Stilton_01.jpg" },
 ]
 
 team_favorite_cheeses = [
