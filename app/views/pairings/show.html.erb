@@ -1,7 +1,6 @@
-<div class="pairings-container">
-  <h1>Pairing Details</h1>
+<div class="content-container">
   <div class="card col-md-6 mb-4">
-    <div class="card-header card-title text-center">
+    <div class="pairing-details-header">
       <%= @pairing.wine.name %> with <%= @pairing.cheese.name %>
     </div>
     <div class="card-body">
@@ -29,26 +28,22 @@
           </dl>
         </div>
       </div>
-      <div class="card-footer text-center">
-        <p class="rate-pairing-details">
-          <%= link_to 'Rate Pairing', new_pairing_review_path(@pairing) %>
-        </p>
+
+      <div class="pairings-path-button">
+        <%= link_to 'Back to Pairings', pairings_path, class: 'link-two-pairings' %>
       </div>
-      <p class="link-two">
-        <%= link_to ' Back to Pairings', pairings_path %>
-      </p>
-      <h3> Rating: <%= @average_rating.round(1) %> </h3>
-      <div class="col-md-6 mb-4">
-        <% @reviews.each do |review| %>
-          <div class="d-inline-flex">
-            <% review.rating.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </div>
-          <p><%= review.content %></p>
+    <div class="col-md-6 mb-4">
+      <% @reviews.each do |review| %>
+        <div class="d-inline-flex">
+         <% review.rating.times do %>
+          <i class="fas fa-star"></i>
         <% end %>
       </div>
+      <p><%= review.content %></p>
+      <% end %>
     </div>
+  </div>
+
     <% if user_signed_in? %>
       <div class="favorite-icon">
         <%= link_to toggle_favorite_pairing_path(@pairing), method: :post, remote: true do %>
@@ -61,14 +56,10 @@
   </div>
 </div>
 
-<%= link_to pairings_path, class: "back-arrow" do %>
+<%= link_to pairings_path, class: "back-arrow-pairing-details" do %>
   <%= icon('fa-solid', 'arrow-left') %>
 <% end %>
 
-<div class="review-container">
-  <div class="pairing-info">
-    <h2>Your pairing:<br> <%= @pairing.cheese.name %> paired with <%= @pairing.wine.name %></h2>
-  </div>
   <div class="review-form">
     <%= simple_form_for([@pairing, @review], data: { controller: "controller-characters" }) do |f| %>
       <div class="field-container">
