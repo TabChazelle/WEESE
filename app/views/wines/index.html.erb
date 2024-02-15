@@ -19,7 +19,7 @@
 <div id="wines-by-country">
   <h2 class="h2-wine">Countries in spotlight</h2>
   <div class="scrolling-wrapper">
-    <% ["France", "United Kingdom", "Italy", "Netherlands", "Greece"].each do |country| %>
+    <% ["France", "Chile", "Italy", "United States", "Spain"].each do |country| %>
       <div class="country-card">
         <%= link_to wines_by_country_path(country: country), class: "wine-card-link" do %>
           <%= image_tag "#{country.downcase}.png", alt: country, class: "flag-image" %>

@@ -10,8 +10,8 @@
   border-radius: 5px;
   background: white;
   justify-content: space-between;
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 200px;
 
   .image-container {
     height: 150px; // Adjust this value as needed
@@ -73,7 +73,7 @@
 
 @media (max-width: 576px) {
   .wine-card {
-    width: calc(75vw - 20px); /* Ajustez à 75% de la largeur de l'écran sur les très petits appareils */
+    width: calc(60vw - 20px); /* Ajustez à 75% de la largeur de l'écran sur les très petits appareils */
   }
 }
 
